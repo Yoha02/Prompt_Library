@@ -1,4 +1,4 @@
-# 🚀 Prompt Library
+# Prompt Library
 
 A centralized, open-source collection of expertly crafted prompts for AI-assisted software development. This library is designed to boost productivity, maintain consistency, and provide ready-to-use prompts tailored for popular technology domains and common development tasks.
 
@@ -6,7 +6,7 @@ A centralized, open-source collection of expertly crafted prompts for AI-assiste
 
 ---
 
-## 📑 Table of Contents
+##  Table of Contents
 
 - [Overview](#-overview)
 - [Getting Started](#-getting-started)
@@ -29,20 +29,20 @@ A centralized, open-source collection of expertly crafted prompts for AI-assiste
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 This Prompt Library provides **production-ready prompts** organized by technology stack and use case. Each prompt is designed to:
 
-- ✅ Generate high-quality, maintainable code
-- ✅ Follow industry best practices and design patterns
-- ✅ Be customizable through placeholder variables `[VARIABLE_NAME]`
-- ✅ Include context, purpose, and usage notes
+-  Generate high-quality, maintainable code
+-  Follow industry best practices and design patterns
+-  Be customizable through placeholder variables `[VARIABLE_NAME]`
+-  Include context, purpose, and usage notes
 
 Whether you're scaffolding a new feature, debugging complex issues, writing documentation, or generating unit tests—this library has you covered.
 
 ---
 
-## 🏁 Getting Started
+##  Getting Started
 
 1. **Browse** the library by technology domain or use case
 2. **Select** a prompt that matches your task
@@ -52,7 +52,7 @@ Whether you're scaffolding a new feature, debugging complex issues, writing docu
 
 ---
 
-## 📂 Library Structure
+##  Library Structure
 
 Each technology domain follows a consistent folder structure:
 
@@ -69,9 +69,9 @@ Some domains include additional specialized categories based on their unique nee
 
 ---
 
-## 📚 Available Domains
+##  Available Domains
 
-### 📱 Android Development
+###  Android Development
 **Path:** `Android_Library/`
 
 Prompts for modern Android development using Kotlin, Jetpack Compose, Room, Hilt, and MVI architecture.
@@ -86,7 +86,7 @@ Prompts for modern Android development using Kotlin, Jetpack Compose, Room, Hilt
 
 ---
 
-### 🔌 Backend API Development
+###  Backend API Development
 **Path:** `Backend_API_Library/`
 
 Prompts for building robust RESTful and GraphQL APIs across multiple languages and frameworks.
@@ -101,7 +101,7 @@ Prompts for building robust RESTful and GraphQL APIs across multiple languages a
 
 ---
 
-### 📊 Data Analytics
+###  Data Analytics
 **Path:** `Data_Analytics_Library/`
 
 Prompts for data engineering, analytics, and business intelligence workflows.
@@ -116,7 +116,7 @@ Prompts for data engineering, analytics, and business intelligence workflows.
 
 ---
 
-### ⚙️ DevOps & Infrastructure
+###  DevOps & Infrastructure
 **Path:** `DevOps_Library/`
 
 Comprehensive prompts for CI/CD, infrastructure automation, and DevOps practices.
@@ -133,7 +133,7 @@ Comprehensive prompts for CI/CD, infrastructure automation, and DevOps practices
 
 ---
 
-### 🍎 iOS Development
+###  iOS Development
 **Path:** `iOS_Library/`
 
 Prompts for iOS development using Swift, VIPER architecture, and Apple frameworks.
@@ -148,7 +148,7 @@ Prompts for iOS development using Swift, VIPER architecture, and Apple framework
 
 ---
 
-### ☕ Java Development
+###  Java Development
 **Path:** `Java_Developers_Library/`
 
 Prompts for Java enterprise development with Spring Boot, Kafka, and reactive programming.
@@ -163,7 +163,7 @@ Prompts for Java enterprise development with Spring Boot, Kafka, and reactive pr
 
 ---
 
-### 🟢 Node.js Development
+###  Node.js Development
 **Path:** `NodeJS_Library/`
 
 Prompts for Node.js and Express.js development with TypeScript, MongoDB, and modern patterns.
@@ -178,7 +178,7 @@ Prompts for Node.js and Express.js development with TypeScript, MongoDB, and mod
 
 ---
 
-### 🐍 Python & SQL
+###  Python & SQL
 **Path:** `Python_SQL_Library/`
 
 Prompts for Python development and SQL database operations.
@@ -193,7 +193,7 @@ Prompts for Python development and SQL database operations.
 
 ---
 
-### ⚛️ React Development
+###  React Development
 **Path:** `React_Prompt_Library/`
 
 Prompts for React application development with hooks, state management, and modern patterns.
@@ -208,7 +208,7 @@ Prompts for React application development with hooks, state management, and mode
 
 ---
 
-## 🏷️ Prompt Categories
+##  Prompt Categories
 
 Each domain includes these standard categories:
 
@@ -222,7 +222,7 @@ Each domain includes these standard categories:
 
 ---
 
-## 💡 How to Use
+##  How to Use
 
 ### Basic Usage
 
@@ -258,7 +258,7 @@ Generate a React component named UserProfile that displays user account data...
 
 ---
 
-## 🔧 Customizing Prompts
+##  Customizing Prompts
 
 Prompts are designed to be adapted to your needs:
 
@@ -269,7 +269,7 @@ Prompts are designed to be adapted to your needs:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Here's how to help:
 
@@ -289,13 +289,13 @@ We welcome contributions! Here's how to help:
 
 ---
 
-## 📄 License
+##  License
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 🌟 Quick Links
+## > Quick Links
 
 | Domain | Code Gen | Debug | Docs | Refactor | Tests |
 |--------|----------|-------|------|----------|-------|
