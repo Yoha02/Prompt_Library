@@ -1,0 +1,112 @@
+# Android Unit Test Generation Prompts
+
+prompts:
+  - name: "Test a ViewModel's State Logic"
+    id: android-test-viewmodel
+    purpose: "Create comprehensive unit tests for a ViewModel to verify its state management logic, asynchronous operations, and interaction with its mocked dependencies."
+    prompt_text: |
+      You are an expert in Android testing using JUnit5 and MockK.
+
+      Write unit tests for my [FEATURE_NAME]ViewModel. The tests must verify its state management logic under different conditions.
+
+      - Setup:
+        - Use a MainCoroutineRule to manage Dispatchers.Main for viewModelScope.
+        - Mock the [REPOSITORY_NAME] dependency using mockk().
+
+      - Test Scenarios for [FUNCTION_TO_TEST]:
+        - Success: When the repository returns data successfully, verify the UiState is updated with the correct data and isLoading is set to false.
+        - Error: When the repository throws an exception, verify the UiState is updated with an error message and isLoading is false.
+        - Loading State: Verify isLoading is true immediately after the function is called and before the repository responds.
+        - Assertion: Use the Turbine library to test the sequence of StateFlow emissions (awaitItem(), awaitComplete(), etc.).
+
+      Provide the complete test class [FEATURE_NAME]ViewModelTest.kt with all necessary setup and test functions.
+    notes:
+      - "Testing the flow of state (Loading -> Success/Error) is a cornerstone of MVI. Turbine is the standard library for making StateFlow testing concise and reliable."
+    placeholders:
+      - name: FEATURE_NAME
+        description: "The name of the feature (e.g., ProductList, UserProfile)"
+      - name: REPOSITORY_NAME
+        description: "The repository that provides data to the ViewModel (e.g., ProductRepository, UserRepository)"
+      - name: FUNCTION_TO_TEST
+        description: "The ViewModel function that triggers state changes (e.g., loadProducts(), refreshUserProfile())"
+
+  - name: "Test a Repository's Data Caching Logic"
+    id: android-test-repository
+    purpose: "Test the critical source-of-truth logic within a Repository, ensuring it correctly handles caching, network fetching, and data synchronization between local and remote sources."
+    prompt_text: |
+      You are an expert in testing Android data layers.
+
+      Write unit tests for my [FEATURE_NAME]Repository. The repository uses a local DAO and a remote API Service to implement a cache-first data strategy.
+
+      - Setup: Mock both the [DAO_INTERFACE] and [API_SERVICE_INTERFACE] dependencies using MockK.
+
+      - Test Scenarios for getData(forceRefresh: Boolean):
+        - Cache Hit: If forceRefresh is false and the DAO has data, verify that data is returned from the DAO and the API Service is never called. (coVerify(exactly = 0) { ... })
+        - Force Refresh: If forceRefresh is true, verify the API Service is called, its result is saved to the DAO, and the API data is returned.
+        - Cache Miss: If forceRefresh is false and the DAO has no data, verify the API Service is called and its result is returned.
+
+      Provide the complete [FEATURE_NAME]RepositoryTest.kt test class, using runTest for all suspend test functions.
+    notes:
+      - "This is a vital test for any app that works offline or uses caching to reduce network usage. Verifying that the network isn't called is just as important as verifying that it is."
+    placeholders:
+      - name: FEATURE_NAME
+        description: "The name of the feature (e.g., Product, Order, User)"
+      - name: DAO_INTERFACE
+        description: "The Room DAO interface used for local storage (e.g., ProductDao, OrderDao)"
+      - name: API_SERVICE_INTERFACE
+        description: "The Retrofit service interface used for network calls (e.g., ProductApiService, OrderApiService)"
+
+  - name: "Test a Jetpack Compose Component's UI and Interaction"
+    id: android-test-compose-component
+    purpose: "Ensure a Composable displays data correctly and responds to user interactions as expected, preventing UI regressions in a repeatable, automated way."
+    prompt_text: |
+      You are an expert in Jetpack Compose UI testing.
+
+      Write UI tests for my [COMPONENT_NAME] Composable using the createComposeRule.
+
+      - Setup: Use composeTestRule.setContent to render the [COMPONENT_NAME] with mock data and a test onEvent lambda.
+
+      - Test Scenarios:
+        - Content Verification: Use onNodeWithText and assertIsDisplayed() to verify that the Text elements correctly display the data from the provided model.
+        - Interaction: Use onNodeWithTag("[TEST_TAG]") to find the clickable element, perform a performClick() action, and assert that the onEvent lambda was invoked with the correct event.
+        - Existence: Verify that key nodes, like an image with a specific contentDescription, exist in the component tree.
+
+      Provide the complete UI test class for the [COMPONENT_NAME] Composable.
+    notes:
+      - "Use Modifier.testTag(\"myTestTag\") on our Composables. It's the most reliable way to find specific nodes in our UI tests, especially in complex screens."
+    placeholders:
+      - name: COMPONENT_NAME
+        description: "The name of your Composable function to test (e.g., ProductCard, ProfileHeader)"
+      - name: TEST_TAG
+        description: "The testTag used to find the clickable element (e.g., product_card_container, profile_edit_button)"
+
+  - name: "Test a Utility or Mapper Function"
+    id: android-test-utility
+    purpose: "Verify the correctness of pure business logic, data transformations, or utility functions. These tests are fast, stable, and form the foundation of a reliable codebase."
+    prompt_text: |
+      You are an expert in writing focused unit tests for pure Kotlin logic.
+
+      Write unit tests for my [MAPPER_OR_UTILITY_FUNCTION] using JUnit5. The tests should be small, fast, and cover all important logic paths.
+
+      - Function to Test: [FUNCTION_SIGNATURE]
+
+      - Test Scenarios:
+        - Happy Path: Test the function with typical, valid input and assert the expected output.
+        - Edge Cases: Test with boundary values (e.g., 0, "", empty list, null if applicable).
+        - Invalid Input: If the function can receive invalid data, test that it handles it gracefully (e.g., throws an expected exception, returns a default value).
+
+      Code to Test:
+      kotlin
+      // [PASTE THE PURE KOTLIN FUNCTION or CLASS HERE]
+
+
+      Provide the complete, focused test class.
+    notes:
+      - "Mappers (e.g., DTO -> Domain Model) are perfect candidates for this type of testing. Ensuring our data transformations are correct prevents a whole class of bugs downstream."
+    placeholders:
+      - name: MAPPER_OR_UTILITY_FUNCTION
+        description: "The name of the utility or mapper function/class to test (e.g., DateFormatter, ProductMapper)"
+      - name: FUNCTION_SIGNATURE
+        description: "The signature of the function to test (e.g., fun formatDate(date: Long): String, fun mapApiToEntity(apiModel: ProductApi): ProductEntity)"
+      - name: FUNCTION_CODE
+        description: "The actual function code to be tested"

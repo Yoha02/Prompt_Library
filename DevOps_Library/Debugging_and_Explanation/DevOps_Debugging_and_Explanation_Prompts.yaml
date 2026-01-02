@@ -1,0 +1,675 @@
+# DevOps Debugging and Explanation Prompts
+
+prompts:
+  - name: "Debug Container Deployment Failures"
+    id: devops-debug-container-deployment
+    purpose: "Systematically troubleshoot container deployment issues in Kubernetes environments with step-by-step diagnostic procedures."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in container orchestration troubleshooting.
+
+      Help me debug a container deployment failure for [APPLICATION_NAME] in [ENVIRONMENT]. Provide a systematic troubleshooting approach:
+
+      - Pod Status Analysis: Check pod status, events, and resource allocation
+      - Container Logs: Analyze container logs for startup errors and runtime issues
+      - Resource Investigation: Verify CPU, memory, and storage resource availability
+      - Network Debugging: Check service discovery, DNS resolution, and network policies
+      - Configuration Validation: Verify ConfigMaps, Secrets, and environment variables
+      - Image Analysis: Validate container image availability and security policies
+      - Node Health: Check node status, capacity, and scheduling constraints
+
+      Requirements:
+      - Provide specific kubectl commands for each diagnostic step
+      - Include common failure patterns and their solutions
+      - Explain how to read and interpret Kubernetes events and logs
+      - Include steps for checking RBAC permissions and security contexts
+      - Provide guidance on temporary workarounds vs permanent fixes
+
+      Walk me through the complete debugging process with actionable commands and explanations.
+    notes:
+      - "Start with basic pod status and work systematically through the stack."
+      - "Always check resource quotas and limits as a common cause of deployment failures."
+      - "Include steps for debugging init containers and sidecar containers separately."
+    placeholders:
+      - name: APPLICATION_NAME
+        description: "Name of the application experiencing deployment issues (e.g., inventory-api, customer-portal, payment-service)"
+      - name: ENVIRONMENT
+        description: "Environment where the issue is occurring (e.g., staging, production, dev)"
+
+  - name: "Debug CI/CD Pipeline Failures"
+    id: devops-debug-cicd-pipeline
+    purpose: "Troubleshoot CI/CD pipeline failures with systematic analysis of build, test, and deployment stages."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in CI/CD pipeline troubleshooting and optimization.
+
+      Help me debug a CI/CD pipeline failure for [PIPELINE_TYPE] on [PLATFORM]. Analyze the following areas:
+
+      - Build Stage Issues: Source code compilation, dependency resolution, and build environment problems
+      - Test Stage Failures: Unit test failures, integration test issues, and test environment problems
+      - Security Scan Problems: Vulnerability scanning failures, policy violations, and compliance issues
+      - Deployment Stage Issues: Deployment target connectivity, permission problems, and configuration errors
+      - Environment Problems: Resource availability, secret management, and network connectivity
+      - Performance Issues: Pipeline execution time, resource utilization, and optimization opportunities
+
+      Requirements:
+      - Provide step-by-step troubleshooting procedures for each stage
+      - Include common error patterns and their solutions
+      - Explain how to read and interpret pipeline logs and artifacts
+      - Include guidance on debugging parallel vs sequential pipeline stages
+      - Provide recommendations for pipeline optimization and reliability improvements
+
+      Walk me through systematic debugging approach with specific commands and log analysis techniques.
+    notes:
+      - "Check pipeline permissions and service account configurations first."
+      - "Analyze resource constraints and pipeline queue times for performance issues."
+      - "Include steps for reproducing pipeline issues locally when possible."
+    placeholders:
+      - name: PIPELINE_TYPE
+        description: "Type of pipeline (e.g., build and deploy, integration testing, security scanning, infrastructure deployment)"
+      - name: PLATFORM
+        description: "CI/CD platform (e.g., GitHub Actions, GitLab CI, Azure DevOps, Jenkins)"
+
+  - name: "Debug Infrastructure Connectivity Issues"
+    id: devops-debug-infrastructure-connectivity
+    purpose: "Systematically troubleshoot network connectivity and infrastructure communication problems across multi-tier architectures."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in infrastructure networking and connectivity troubleshooting.
+
+      Help me debug connectivity issues between [SOURCE_COMPONENT] and [TARGET_COMPONENT] in [INFRASTRUCTURE_TYPE]. Analyze:
+
+      - Network Layer Analysis: DNS resolution, routing tables, and firewall rules
+      - Service Discovery: Service registration, health checks, and load balancer configuration
+      - Security Group Analysis: Network security policies, ingress/egress rules, and port configurations
+      - Load Balancer Issues: Health check failures, backend pool status, and traffic distribution
+      - Certificate Problems: SSL/TLS certificate validation, expiration, and trust chain issues
+      - Infrastructure Health: Component status, resource availability, and dependency analysis
+
+      Requirements:
+      - Provide specific diagnostic commands for each network layer
+      - Include packet capture and analysis procedures when necessary
+      - Explain how to test connectivity from different network segments
+      - Include guidance on debugging intermittent connectivity issues
+      - Provide steps for validating security policies and access controls
+
+      Guide me through systematic network troubleshooting with actionable diagnostic procedures.
+    notes:
+      - "Start with basic connectivity tests and work up through the network stack."
+      - "Include steps for testing from multiple source locations to isolate issues."
+      - "Always verify DNS resolution and certificate validity in HTTPS scenarios."
+    placeholders:
+      - name: SOURCE_COMPONENT
+        description: "Source component having connectivity issues (e.g., web application, API gateway, microservice)"
+      - name: TARGET_COMPONENT
+        description: "Target component that cannot be reached (e.g., database, external API, message queue)"
+      - name: INFRASTRUCTURE_TYPE
+        description: "Infrastructure type (e.g., Kubernetes cluster, cloud VPC, hybrid environment)"
+
+  - name: "Debug Performance Degradation Issues"
+    id: devops-debug-performance-degradation
+    purpose: "Identify and troubleshoot performance bottlenecks in applications and infrastructure with systematic analysis approaches."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in performance troubleshooting and optimization.
+
+      Help me debug performance degradation in [SYSTEM_COMPONENT] showing [PERFORMANCE_SYMPTOM]. Investigate:
+
+      - Resource Utilization: CPU, memory, disk I/O, and network bandwidth analysis
+      - Application Metrics: Response times, throughput, error rates, and queue depths
+      - Infrastructure Health: Database performance, caching efficiency, and storage latency
+      - Network Performance: Latency analysis, packet loss, and bandwidth utilization
+      - Dependency Analysis: External service performance and third-party API response times
+      - Configuration Issues: Resource limits, autoscaling policies, and optimization settings
+
+      Requirements:
+      - Provide specific monitoring and profiling commands for performance analysis
+      - Include steps for identifying performance baselines and thresholds
+      - Explain how to correlate performance metrics across different system layers
+      - Include guidance on performance testing and load simulation
+      - Provide recommendations for both immediate fixes and long-term optimizations
+
+      Walk me through systematic performance debugging with metrics analysis and optimization strategies.
+    notes:
+      - "Establish performance baselines before implementing any changes."
+      - "Consider both application-level and infrastructure-level performance factors."
+      - "Include steps for identifying memory leaks and resource accumulation issues."
+    placeholders:
+      - name: SYSTEM_COMPONENT
+        description: "System component experiencing performance issues (e.g., web application, database, API service)"
+      - name: PERFORMANCE_SYMPTOM
+        description: "Performance symptom (e.g., slow response times, high CPU usage, memory leaks, timeouts)"
+
+  - name: "Debug Storage and Database Issues"
+    id: devops-debug-storage-database
+    purpose: "Troubleshoot storage system problems and database connectivity issues with comprehensive diagnostic procedures."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in storage systems and database troubleshooting.
+
+      Help me debug storage/database issues with [STORAGE_SYSTEM] experiencing [ISSUE_TYPE]. Analyze:
+
+      - Connection Issues: Database connectivity, connection pool exhaustion, and authentication problems
+      - Performance Problems: Query performance, index usage, and lock contention analysis
+      - Storage Health: Disk space utilization, I/O performance, and file system issues
+      - Backup and Recovery: Backup job failures, corruption detection, and recovery procedures
+      - Replication Issues: Master-slave synchronization, lag analysis, and failover problems
+      - Resource Constraints: Memory usage, CPU utilization, and storage capacity planning
+
+      Requirements:
+      - Provide specific diagnostic queries and commands for database analysis
+      - Include steps for analyzing database logs and performance metrics
+      - Explain how to identify and resolve lock contention and deadlock issues
+      - Include guidance on storage performance testing and optimization
+      - Provide procedures for validating backup integrity and recovery capabilities
+
+      Guide me through comprehensive storage and database troubleshooting with actionable solutions.
+    notes:
+      - "Always check basic connectivity and authentication before diving into complex issues."
+      - "Include steps for analyzing query execution plans and index effectiveness."
+      - "Consider both hardware and software factors when diagnosing storage performance issues."
+    placeholders:
+      - name: STORAGE_SYSTEM
+        description: "Storage system type (e.g., PostgreSQL database, Redis cache, MongoDB cluster, persistent volumes)"
+      - name: ISSUE_TYPE
+        description: "Issue type (e.g., connection timeouts, slow queries, disk space errors, replication lag)"
+
+  - name: "Debug Security and Access Control Issues"
+    id: devops-debug-security-access
+    purpose: "Troubleshoot authentication, authorization, and security policy issues in infrastructure environments."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in security troubleshooting and access control debugging.
+
+      Help me debug security/access issues with [SECURITY_COMPONENT] where [ACCESS_PROBLEM] is occurring. Investigate:
+
+      - Authentication Issues: Identity verification, token validation, and credential problems
+      - Authorization Problems: Permission assignments, role-based access control, and policy evaluation
+      - Certificate Issues: SSL/TLS certificate problems, expiration, and trust chain validation
+      - Network Security: Firewall rules, security groups, and network policy configuration
+      - Secret Management: Secret rotation, access permissions, and encryption issues
+      - Compliance Violations: Policy violations, audit trail analysis, and remediation procedures
+
+      Requirements:
+      - Provide specific commands for checking permissions and access controls
+      - Include steps for validating certificate chains and encryption
+      - Explain how to analyze audit logs and security events
+      - Include guidance on testing security policies and access patterns
+      - Provide procedures for emergency access recovery and incident response
+
+      Walk me through systematic security troubleshooting with validation procedures and remediation steps.
+    notes:
+      - "Always verify identity and authentication before troubleshooting authorization issues."
+      - "Include steps for checking both service-to-service and user access patterns."
+      - "Consider time-based access policies and temporary credential expiration."
+    placeholders:
+      - name: SECURITY_COMPONENT
+        description: "Security component (e.g., Kubernetes RBAC, OAuth provider, certificate authority, API gateway)"
+      - name: ACCESS_PROBLEM
+        description: "Access problem (e.g., permission denied, certificate validation failed, token expired)"
+
+  - name: "Debug Monitoring and Alerting Issues"
+    id: devops-debug-monitoring-alerting
+    purpose: "Troubleshoot monitoring system problems, alert delivery issues, and observability platform failures."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in observability platform troubleshooting and monitoring system debugging.
+
+      Help me debug monitoring issues with [MONITORING_SYSTEM] where [MONITORING_PROBLEM] is occurring. Analyze:
+
+      - Data Collection Issues: Metric scraping failures, log ingestion problems, and agent connectivity
+      - Alert Delivery Problems: Notification channel failures, routing rule issues, and escalation problems
+      - Dashboard Issues: Data visualization problems, query performance, and refresh failures
+      - Storage Problems: Metric retention issues, disk space problems, and query performance
+      - Configuration Errors: Scraping configurations, alert rule syntax, and target discovery
+      - Integration Issues: External system connectivity and API authentication problems
+
+      Requirements:
+      - Provide specific commands for checking monitoring system health and configuration
+      - Include steps for validating data collection and storage pipelines
+      - Explain how to test alert rules and notification channels
+      - Include guidance on debugging query performance and data retention
+      - Provide procedures for monitoring system backup and recovery
+
+      Guide me through systematic monitoring platform troubleshooting with validation and testing procedures.
+    notes:
+      - "Check basic connectivity and authentication before investigating complex configuration issues."
+      - "Include steps for validating monitoring data accuracy and completeness."
+      - "Consider monitoring system resource usage and capacity planning."
+    placeholders:
+      - name: MONITORING_SYSTEM
+        description: "Monitoring system (e.g., Prometheus/Grafana, Datadog, New Relic, ELK stack)"
+      - name: MONITORING_PROBLEM
+        description: "Monitoring problem (e.g., missing metrics, failed alerts, dashboard errors, data gaps)"
+
+  - name: "Debug Load Balancer and Traffic Issues"
+    id: devops-debug-load-balancer-traffic
+    purpose: "Troubleshoot load balancer configuration problems and traffic distribution issues in distributed systems."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in load balancer troubleshooting and traffic management.
+
+      Help me debug load balancer issues with [LOAD_BALANCER_TYPE] experiencing [TRAFFIC_PROBLEM]. Investigate:
+
+      - Health Check Failures: Backend health check configuration and endpoint availability
+      - Traffic Distribution: Load balancing algorithms, session affinity, and traffic weighting
+      - SSL/TLS Issues: Certificate configuration, protocol versions, and cipher suite compatibility
+      - Backend Connectivity: Target pool status, network routing, and service discovery
+      - Performance Issues: Connection limits, timeout configuration, and throughput optimization
+      - Configuration Problems: Routing rules, header manipulation, and path-based routing
+
+      Requirements:
+      - Provide specific commands for checking load balancer status and configuration
+      - Include steps for testing traffic distribution and failover behavior
+      - Explain how to analyze load balancer logs and metrics
+      - Include guidance on debugging SSL termination and backend connectivity
+      - Provide procedures for testing load balancer performance and capacity
+
+      Walk me through systematic load balancer troubleshooting with testing and validation procedures.
+    notes:
+      - "Always verify backend service health before investigating load balancer configuration."
+      - "Include steps for testing load balancer behavior under different traffic patterns."
+      - "Consider both application and infrastructure factors in traffic distribution issues."
+    placeholders:
+      - name: LOAD_BALANCER_TYPE
+        description: "Load balancer type (e.g., AWS ALB, NGINX Ingress, HAProxy, cloud load balancer)"
+      - name: TRAFFIC_PROBLEM
+        description: "Traffic problem (e.g., uneven distribution, health check failures, SSL errors, timeouts)"
+
+  - name: "Debug Service Mesh Communication Issues"
+    id: devops-debug-service-mesh
+    purpose: "Troubleshoot service mesh communication problems, sidecar proxy issues, and traffic management configurations."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in service mesh troubleshooting and microservices communication debugging.
+
+      Help me debug service mesh issues with [SERVICE_MESH_TECHNOLOGY] where [MESH_PROBLEM] is occurring. Analyze:
+
+      - Sidecar Proxy Issues: Envoy proxy configuration, injection problems, and startup failures
+      - Traffic Routing: Virtual services, destination rules, and traffic splitting configuration
+      - Security Policies: mTLS configuration, authentication policies, and authorization rules
+      - Service Discovery: Service registration, endpoint resolution, and health checking
+      - Observability Issues: Tracing propagation, metrics collection, and log aggregation
+      - Performance Problems: Proxy overhead, connection pooling, and circuit breaker behavior
+
+      Requirements:
+      - Provide specific commands for checking service mesh control plane and data plane health
+      - Include steps for analyzing proxy logs and configuration
+      - Explain how to test service-to-service communication and security policies
+      - Include guidance on debugging traffic management and routing rules
+      - Provide procedures for validating observability and telemetry collection
+
+      Guide me through systematic service mesh troubleshooting with proxy analysis and policy validation.
+    notes:
+      - "Check service mesh control plane health before investigating individual service issues."
+      - "Include steps for validating proxy injection and sidecar container status."
+      - "Consider both service mesh configuration and application code factors."
+    placeholders:
+      - name: SERVICE_MESH_TECHNOLOGY
+        description: "Service mesh technology (e.g., Istio, Linkerd, Consul Connect, AWS App Mesh)"
+      - name: MESH_PROBLEM
+        description: "Service mesh problem (e.g., communication failures, mTLS errors, routing issues, proxy startup failures)"
+
+  - name: "Debug Auto-scaling and Resource Management"
+    id: devops-debug-autoscaling-resources
+    purpose: "Troubleshoot auto-scaling issues and resource management problems in dynamic infrastructure environments."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in auto-scaling troubleshooting and resource management optimization.
+
+      Help me debug auto-scaling issues with [SCALING_SYSTEM] where [SCALING_PROBLEM] is occurring. Investigate:
+
+      - Scaling Metrics: Metric collection, thresholds, and calculation accuracy
+      - Resource Constraints: CPU, memory, and storage resource availability and limits
+      - Scaling Policies: Scale-out/scale-in rules, cooldown periods, and threshold configuration
+      - Instance Management: Instance launch failures, health checks, and termination issues
+      - Capacity Planning: Minimum/maximum instance limits and resource quotas
+      - Performance Impact: Scaling speed, resource utilization, and cost optimization
+
+      Requirements:
+      - Provide specific commands for checking auto-scaling configuration and status
+      - Include steps for analyzing scaling metrics and decision-making logic
+      - Explain how to test scaling behavior under different load patterns
+      - Include guidance on debugging resource allocation and quota issues
+      - Provide procedures for optimizing scaling policies and performance
+
+      Walk me through systematic auto-scaling troubleshooting with metrics analysis and policy optimization.
+    notes:
+      - "Verify metrics collection and accuracy before investigating scaling policy issues."
+      - "Include steps for testing scaling behavior in staging environments."
+      - "Consider both cost optimization and performance requirements in scaling configurations."
+    placeholders:
+      - name: SCALING_SYSTEM
+        description: "Scaling system (e.g., Kubernetes HPA, AWS Auto Scaling, Google Cloud Autoscaler)"
+      - name: SCALING_PROBLEM
+        description: "Scaling problem (e.g., no scaling events, slow scaling, resource constraints, metric collection failures)"
+
+  - name: "Explain Infrastructure Architecture Patterns"
+    id: devops-explain-infrastructure-patterns
+    purpose: "Provide comprehensive explanations of infrastructure architecture patterns and their implementation considerations."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in infrastructure architecture and design patterns.
+
+      Explain the [ARCHITECTURE_PATTERN] pattern for [USE_CASE_CONTEXT] including:
+
+      - Pattern Overview: Core concepts, components, and architectural principles
+      - Implementation Details: Technology choices, configuration requirements, and integration points
+      - Benefits and Trade-offs: Advantages, limitations, and cost considerations
+      - Best Practices: Implementation guidelines, security considerations, and operational practices
+      - Common Pitfalls: Frequent mistakes, anti-patterns, and troubleshooting guidance
+      - Scaling Considerations: Performance implications, capacity planning, and growth strategies
+      - Monitoring and Observability: Key metrics, alerting strategies, and debugging approaches
+
+      Requirements:
+      - Include specific technology examples and configuration snippets
+      - Explain decision criteria for choosing this pattern over alternatives
+      - Provide implementation roadmap with phases and milestones
+      - Include security and compliance considerations
+      - Discuss operational overhead and maintenance requirements
+
+      Provide a comprehensive explanation with practical implementation guidance and real-world examples.
+    notes:
+      - "Include comparisons with alternative patterns to help with decision making."
+      - "Consider both technical and business factors in pattern recommendations."
+      - "Provide specific metrics and KPIs for measuring pattern success."
+    placeholders:
+      - name: ARCHITECTURE_PATTERN
+        description: "Architecture pattern (e.g., microservices, event-driven, serverless, multi-tier, CQRS)"
+      - name: USE_CASE_CONTEXT
+        description: "Use case context (e.g., e-commerce platform, real-time analytics, payment processing, inventory management)"
+
+  - name: "Explain CI/CD Pipeline Design Decisions"
+    id: devops-explain-cicd-design
+    purpose: "Provide detailed explanations of CI/CD pipeline design choices and their impact on development workflows."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in CI/CD pipeline design and optimization.
+
+      Explain the design decisions for a [PIPELINE_COMPLEXITY] CI/CD pipeline for [APPLICATION_TYPE] including:
+
+      - Pipeline Structure: Stage organization, dependency management, and parallel execution strategies
+      - Testing Strategy: Test types, coverage requirements, and quality gates
+      - Security Integration: Security scanning, vulnerability management, and compliance checks
+      - Deployment Strategy: Deployment patterns, rollback procedures, and environment promotion
+      - Tool Selection: Technology choices, integration requirements, and vendor considerations
+      - Performance Optimization: Execution time, resource usage, and caching strategies
+      - Monitoring and Observability: Pipeline metrics, alerting, and troubleshooting capabilities
+
+      Requirements:
+      - Explain the rationale behind each design decision
+      - Include trade-offs between speed, security, and reliability
+      - Provide specific configuration examples and best practices
+      - Discuss maintenance overhead and operational considerations
+      - Include guidelines for pipeline evolution and improvement
+
+      Provide comprehensive explanation with design rationale and implementation guidance.
+    notes:
+      - "Consider both development team needs and operational requirements."
+      - "Include specific metrics for measuring pipeline effectiveness and efficiency."
+      - "Discuss how pipeline design scales with team size and application complexity."
+    placeholders:
+      - name: PIPELINE_COMPLEXITY
+        description: "Pipeline complexity level (e.g., simple, enterprise-grade, multi-environment, multi-cloud)"
+      - name: APPLICATION_TYPE
+        description: "Application type (e.g., microservices, monolithic web app, mobile backend, data pipeline)"
+
+  - name: "Explain Container Security Best Practices"
+    id: devops-explain-container-security
+    purpose: "Provide comprehensive explanation of container security practices and their implementation in production environments."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in container security and compliance.
+
+      Explain container security best practices for [CONTAINER_ENVIRONMENT] with focus on [SECURITY_REQUIREMENTS]:
+
+      - Image Security: Base image selection, vulnerability scanning, and minimal attack surface
+      - Runtime Security: Container isolation, security contexts, and resource constraints
+      - Network Security: Network policies, service mesh security, and traffic encryption
+      - Secrets Management: Secret storage, rotation, and access control
+      - Compliance Requirements: Regulatory compliance, audit trails, and policy enforcement
+      - Monitoring and Detection: Security monitoring, intrusion detection, and incident response
+      - Access Control: RBAC implementation, authentication, and authorization
+
+      Requirements:
+      - Provide specific security configuration examples and tools
+      - Explain the security impact of different configuration choices
+      - Include compliance requirements for retail and payment processing
+      - Discuss security monitoring and alerting strategies
+      - Provide guidelines for security testing and validation
+
+      Provide comprehensive security guidance with practical implementation examples and compliance considerations.
+    notes:
+      - "Include specific tools and configurations for each security layer."
+      - "Consider both preventive and detective security controls."
+      - "Discuss security automation and policy-as-code approaches."
+    placeholders:
+      - name: CONTAINER_ENVIRONMENT
+        description: "Container environment (e.g., Kubernetes, Docker Swarm, cloud container services)"
+      - name: SECURITY_REQUIREMENTS
+        description: "Security requirements (e.g., PCI DSS compliance, zero-trust, multi-tenancy, data protection)"
+
+  - name: "Explain Monitoring Strategy Implementation"
+    id: devops-explain-monitoring-strategy
+    purpose: "Provide detailed explanation of monitoring strategy design and implementation for complex distributed systems."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in observability strategy and monitoring system design.
+
+      Explain the monitoring strategy for [SYSTEM_TYPE] focusing on [MONITORING_OBJECTIVES]:
+
+      - Observability Pillars: Metrics, logs, traces, and their correlation strategies
+      - SLI/SLO Definition: Service level indicators, objectives, and error budget management
+      - Alerting Strategy: Alert design, notification routing, and escalation procedures
+      - Dashboard Design: Visualization principles, user personas, and information hierarchy
+      - Data Management: Collection, storage, retention, and cost optimization
+      - Tool Integration: Monitoring stack components and their integration patterns
+      - Operational Procedures: Incident response, troubleshooting workflows, and continuous improvement
+
+      Requirements:
+      - Provide specific monitoring tool configurations and integration examples
+      - Explain the relationship between business metrics and technical metrics
+      - Include guidelines for monitoring at different system layers
+      - Discuss monitoring scalability and performance considerations
+      - Provide framework for monitoring system evaluation and optimization
+
+      Provide comprehensive monitoring strategy with implementation roadmap and operational guidance.
+    notes:
+      - "Include specific examples of effective SLIs and SLOs for different service types."
+      - "Consider both proactive and reactive monitoring approaches."
+      - "Discuss monitoring system reliability and meta-monitoring requirements."
+    placeholders:
+      - name: SYSTEM_TYPE
+        description: "System type (e.g., microservices platform, e-commerce application, data pipeline, hybrid infrastructure)"
+      - name: MONITORING_OBJECTIVES
+        description: "Monitoring objectives (e.g., availability, performance, security, compliance, cost optimization)"
+
+  - name: "Explain Infrastructure as Code Strategy"
+    id: devops-explain-iac-strategy
+    purpose: "Provide comprehensive explanation of Infrastructure as Code implementation strategy and governance approaches."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in Infrastructure as Code strategy and implementation.
+
+      Explain the IaC strategy for [INFRASTRUCTURE_SCOPE] with focus on [IAC_OBJECTIVES]:
+
+      - Tool Selection: IaC tool comparison, selection criteria, and integration considerations
+      - Code Organization: Module structure, repository organization, and dependency management
+      - Testing Strategy: Infrastructure testing, validation, and quality assurance
+      - Deployment Workflow: Change management, approval processes, and deployment automation
+      - State Management: State storage, locking, and backup strategies
+      - Security Integration: Policy validation, secret management, and compliance automation
+      - Operational Practices: Monitoring, drift detection, and maintenance procedures
+
+      Requirements:
+      - Provide specific tool configurations and workflow examples
+      - Explain governance and compliance considerations
+      - Include guidelines for team collaboration and code review
+      - Discuss infrastructure versioning and rollback strategies
+      - Provide framework for IaC maturity assessment and improvement
+
+      Provide comprehensive IaC strategy with implementation roadmap and governance framework.
+    notes:
+      - "Include specific examples of effective module design and organization patterns."
+      - "Consider both immediate implementation needs and long-term scalability."
+      - "Discuss integration with existing infrastructure and migration strategies."
+    placeholders:
+      - name: INFRASTRUCTURE_SCOPE
+        description: "Infrastructure scope (e.g., multi-cloud platform, Kubernetes infrastructure, hybrid environment)"
+      - name: IAC_OBJECTIVES
+        description: "IaC objectives (e.g., standardization, compliance, automation, cost optimization, scalability)"
+
+  - name: "Explain Disaster Recovery Implementation"
+    id: devops-explain-disaster-recovery
+    purpose: "Provide detailed explanation of disaster recovery strategy design and implementation for critical business systems."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in disaster recovery and business continuity planning.
+
+      Explain the disaster recovery implementation for [BUSINESS_SYSTEM] with [RECOVERY_REQUIREMENTS]:
+
+      - Recovery Objectives: RTO/RPO definition, business impact analysis, and priority classification
+      - Architecture Design: Primary/secondary site design, data replication, and failover mechanisms
+      - Automation Strategy: Automated failover, recovery orchestration, and rollback procedures
+      - Testing Framework: DR testing schedules, scenarios, and validation procedures
+      - Communication Plans: Stakeholder notification, status updates, and escalation procedures
+      - Compliance Requirements: Regulatory requirements, audit trails, and documentation
+      - Cost Optimization: Resource optimization, cost-effective recovery options, and budget planning
+
+      Requirements:
+      - Provide specific implementation examples and configuration guidance
+      - Explain testing and validation procedures with realistic scenarios
+      - Include integration with monitoring and alerting systems
+      - Discuss recovery automation and orchestration strategies
+      - Provide framework for DR plan maintenance and continuous improvement
+
+      Provide comprehensive disaster recovery strategy with implementation details and operational procedures.
+    notes:
+      - "Include specific metrics and success criteria for disaster recovery capabilities."
+      - "Consider both technical and business aspects of disaster recovery planning."
+      - "Discuss cross-functional coordination and communication requirements."
+    placeholders:
+      - name: BUSINESS_SYSTEM
+        description: "Business system (e.g., e-commerce platform, payment processing, inventory management, customer data)"
+      - name: RECOVERY_REQUIREMENTS
+        description: "Recovery requirements (e.g., 15-minute RTO, zero data loss, cross-region, regulatory compliance)"
+
+  - name: "Explain Multi-Cloud Strategy Implementation"
+    id: devops-explain-multicloud-strategy
+    purpose: "Provide comprehensive explanation of multi-cloud strategy design and implementation considerations."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in multi-cloud strategy and implementation.
+
+      Explain the multi-cloud implementation strategy for [ORGANIZATION_TYPE] with [MULTICLOUD_OBJECTIVES]:
+
+      - Cloud Selection: Provider evaluation, service mapping, and vendor risk assessment
+      - Architecture Design: Cloud-agnostic design patterns, abstraction layers, and integration strategies
+      - Data Management: Cross-cloud data synchronization, backup strategies, and consistency management
+      - Network Design: Inter-cloud connectivity, traffic management, and security considerations
+      - Operational Complexity: Management tools, monitoring strategies, and operational overhead
+      - Cost Management: Cost optimization, resource allocation, and billing management
+      - Risk Mitigation: Vendor lock-in prevention, disaster recovery, and business continuity
+
+      Requirements:
+      - Provide specific implementation examples and architectural patterns
+      - Explain trade-offs between complexity and benefits
+      - Include governance and compliance considerations
+      - Discuss migration strategies and timeline planning
+      - Provide framework for multi-cloud maturity assessment
+
+      Provide comprehensive multi-cloud strategy with implementation roadmap and operational guidance.
+    notes:
+      - "Include specific examples of successful multi-cloud patterns and anti-patterns."
+      - "Consider both technical capabilities and organizational readiness."
+      - "Discuss skills and training requirements for multi-cloud operations."
+    placeholders:
+      - name: ORGANIZATION_TYPE
+        description: "Organization type (e.g., enterprise retail, financial services, healthcare, technology startup)"
+      - name: MULTICLOUD_OBJECTIVES
+        description: "Multi-cloud objectives (e.g., vendor diversification, cost optimization, compliance, performance)"
+
+  - name: "Explain GitOps Implementation Strategy"
+    id: devops-explain-gitops-strategy
+    purpose: "Provide detailed explanation of GitOps implementation strategy and organizational adoption approaches."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in GitOps strategy and organizational transformation.
+
+      Explain the GitOps implementation strategy for [ORGANIZATION_CONTEXT] with [GITOPS_SCOPE]:
+
+      - Repository Strategy: Code organization, branching strategies, and access control
+      - Tool Selection: GitOps operator comparison, selection criteria, and integration requirements
+      - Workflow Design: Development workflows, approval processes, and deployment automation
+      - Security Implementation: RBAC, policy enforcement, and secret management
+      - Observability Integration: Deployment monitoring, drift detection, and audit trails
+      - Change Management: Rollback procedures, emergency processes, and incident response
+      - Organizational Adoption: Team training, cultural changes, and success metrics
+
+      Requirements:
+      - Provide specific tool configurations and workflow examples
+      - Explain organizational change management considerations
+      - Include security and compliance implementation guidance
+      - Discuss scaling strategies for large organizations
+      - Provide framework for GitOps maturity assessment and improvement
+
+      Provide comprehensive GitOps strategy with implementation phases and organizational guidance.
+    notes:
+      - "Include specific examples of successful GitOps adoption patterns."
+      - "Consider both technical implementation and cultural transformation aspects."
+      - "Discuss metrics and KPIs for measuring GitOps success."
+    placeholders:
+      - name: ORGANIZATION_CONTEXT
+        description: "Organization context (e.g., large enterprise, startup, regulated industry, distributed teams)"
+      - name: GITOPS_SCOPE
+        description: "GitOps scope (e.g., application deployment, infrastructure management, multi-cluster, multi-cloud)"
+
+  - name: "Explain Performance Optimization Methodology"
+    id: devops-explain-performance-optimization
+    purpose: "Provide comprehensive explanation of performance optimization methodology and implementation approaches."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in performance optimization and capacity management.
+
+      Explain the performance optimization methodology for [SYSTEM_ARCHITECTURE] with [PERFORMANCE_GOALS]:
+
+      - Performance Assessment: Baseline establishment, bottleneck identification, and capacity analysis
+      - Optimization Strategy: Layered optimization approach, prioritization criteria, and impact measurement
+      - Monitoring Implementation: Performance metrics, alerting thresholds, and trend analysis
+      - Testing Framework: Load testing, stress testing, and performance regression detection
+      - Automation Strategy: Auto-scaling, performance tuning, and optimization automation
+      - Cost Considerations: Performance-cost trade-offs, resource efficiency, and budget optimization
+      - Continuous Improvement: Performance culture, feedback loops, and optimization cycles
+
+      Requirements:
+      - Provide specific optimization techniques and implementation examples
+      - Explain performance testing and validation methodologies
+      - Include monitoring and alerting strategy for performance management
+      - Discuss automation opportunities and implementation approaches
+      - Provide framework for performance optimization program management
+
+      Provide comprehensive performance optimization methodology with implementation guidance and measurement strategies.
+    notes:
+      - "Include specific examples of successful performance optimization initiatives."
+      - "Consider both application and infrastructure optimization opportunities."
+      - "Discuss performance optimization as an ongoing practice rather than one-time effort."
+    placeholders:
+      - name: SYSTEM_ARCHITECTURE
+        description: "System architecture (e.g., microservices platform, monolithic application, data processing pipeline)"
+      - name: PERFORMANCE_GOALS
+        description: "Performance goals (e.g., sub-second response times, high throughput, cost efficiency, scalability)"
+
+  - name: "Explain Security Compliance Implementation"
+    id: devops-explain-security-compliance
+    purpose: "Provide detailed explanation of security compliance implementation strategy for enterprise environments."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in security compliance automation and implementation.
+
+      Explain the security compliance implementation for [COMPLIANCE_FRAMEWORK] in [ENVIRONMENT_TYPE]:
+
+      - Compliance Requirements: Regulatory requirements, control objectives, and evidence requirements
+      - Implementation Strategy: Control automation, policy enforcement, and compliance monitoring
+      - Tool Integration: Security tools, compliance platforms, and audit automation
+      - Evidence Collection: Automated evidence gathering, documentation, and audit trails
+      - Risk Management: Risk assessment, mitigation strategies, and continuous monitoring
+      - Incident Response: Compliance incident handling, reporting, and remediation
+      - Continuous Improvement: Compliance maturity, gap analysis, and program optimization
+
+      Requirements:
+      - Provide specific implementation examples and automation strategies
+      - Explain audit preparation and evidence management
+      - Include integration with existing security and operational tools
+      - Discuss organizational change management for compliance
+      - Provide framework for compliance program measurement and improvement
+
+      Provide comprehensive compliance implementation strategy with automation approach and operational guidance.
+    notes:
+      - "Include specific examples of successful compliance automation implementations."
+      - "Consider both technical controls and organizational process requirements."
+      - "Discuss compliance as an ongoing operational practice."
+    placeholders:
+      - name: COMPLIANCE_FRAMEWORK
+        description: "Compliance framework (e.g., PCI DSS, SOC 2, GDPR, HIPAA, ISO 27001)"
+      - name: ENVIRONMENT_TYPE
+        description: "Environment type (e.g., cloud infrastructure, hybrid environment, Kubernetes platform, multi-cloud)" 

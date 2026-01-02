@@ -1,0 +1,631 @@
+# DevOps Unit Test Generation Prompts
+
+prompts:
+  - name: "Generate Infrastructure as Code Unit Tests"
+    id: devops-generate-iac-unit-tests
+    purpose: "Create comprehensive unit tests for Infrastructure as Code modules to validate configuration correctness and resource provisioning."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in Infrastructure as Code testing and validation.
+
+      Generate comprehensive unit tests for [IAC_MODULE] using [TESTING_FRAMEWORK] including:
+
+      - Resource Validation Tests: Verify correct resource configuration, properties, and dependencies
+      - Input Validation Tests: Test input parameter validation, type checking, and constraint enforcement
+      - Output Verification Tests: Validate module outputs, data transformations, and exported values
+      - Error Handling Tests: Test error conditions, invalid inputs, and failure scenarios
+      - Security Policy Tests: Verify security configurations, compliance requirements, and access controls
+      - Cost Optimization Tests: Validate resource sizing, type selection, and cost-effective configurations
+      - Integration Tests: Test module interactions, dependencies, and cross-module compatibility
+
+      Requirements:
+      - Include positive and negative test cases with comprehensive coverage
+      - Provide mocking strategies for external dependencies and cloud services
+      - Include performance and timeout testing for resource provisioning
+      - Add parameterized tests for different environments and configurations
+      - Include test data setup and teardown procedures
+      - Provide test reporting and coverage analysis
+
+      Generate complete test suite with setup, execution, and validation procedures.
+    notes:
+      - "Focus on testing configuration correctness before actual resource provisioning."
+      - "Include tests for different cloud providers and environments."
+      - "Consider cost implications and test execution time optimization."
+    placeholders:
+      - name: IAC_MODULE
+        description: "Infrastructure as Code module (e.g., Terraform VPC module, Kubernetes deployment, CloudFormation template)"
+      - name: TESTING_FRAMEWORK
+        description: "Testing framework (e.g., Terratest, Kitchen-Terraform, pytest-terraform, Go testing)"
+
+  - name: "Generate Container and Docker Testing Suite"
+    id: devops-generate-container-tests
+    purpose: "Create comprehensive test suites for container images, Dockerfiles, and container runtime configurations."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in container testing and image validation.
+
+      Generate comprehensive container tests for [CONTAINER_APPLICATION] including:
+
+      - Image Build Tests: Validate Dockerfile syntax, build process, and layer optimization
+      - Security Scanning Tests: Test for vulnerabilities, compliance, and security best practices
+      - Runtime Configuration Tests: Verify environment variables, volume mounts, and network configurations
+      - Health Check Tests: Test application startup, readiness probes, and liveness checks
+      - Resource Constraint Tests: Validate memory limits, CPU constraints, and resource allocation
+      - Multi-Architecture Tests: Test container compatibility across different architectures
+      - Integration Tests: Test container interactions, service communication, and orchestration
+
+      Requirements:
+      - Include automated testing in CI/CD pipelines with proper integration
+      - Provide security testing with vulnerability scanning and compliance checks
+      - Include performance testing for container startup time and resource usage
+      - Add multi-stage build testing and optimization validation
+      - Include container registry integration and artifact testing
+      - Provide test automation and reporting mechanisms
+
+      Generate complete container testing strategy with implementation examples and automation.
+    notes:
+      - "Include both functional and non-functional testing for containers."
+      - "Focus on security testing and vulnerability management."
+      - "Consider testing in different orchestration environments."
+    placeholders:
+      - name: CONTAINER_APPLICATION
+        description: "Container application (e.g., Node.js API, Python web app, Java microservice, database container)"
+
+  - name: "Generate CI/CD Pipeline Testing Framework"
+    id: devops-generate-cicd-pipeline-tests
+    purpose: "Create comprehensive testing frameworks for CI/CD pipelines to validate automation, deployments, and workflow correctness."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in CI/CD pipeline testing and automation validation.
+
+      Generate comprehensive pipeline tests for [PIPELINE_SYSTEM] including:
+
+      - Pipeline Configuration Tests: Validate pipeline syntax, stage definitions, and workflow logic
+      - Build Process Tests: Test compilation, dependency resolution, and artifact generation
+      - Deployment Validation Tests: Verify deployment steps, environment targeting, and rollback procedures
+      - Security Integration Tests: Test security scanning, vulnerability detection, and compliance validation
+      - Performance Tests: Validate pipeline execution time, resource utilization, and optimization
+      - Integration Tests: Test external system integrations, API connections, and service dependencies
+      - Failure Scenario Tests: Test error handling, retry mechanisms, and recovery procedures
+
+      Requirements:
+      - Include pipeline testing in multiple environments with proper isolation
+      - Provide mock services and test doubles for external dependencies
+      - Include parallel execution testing and resource contention scenarios
+      - Add approval workflow testing and manual intervention validation
+      - Include pipeline monitoring and alerting validation
+      - Provide comprehensive test reporting and pipeline analytics
+
+      Generate complete pipeline testing framework with validation procedures and automation.
+    notes:
+      - "Focus on testing pipeline logic without affecting production systems."
+      - "Include testing for different deployment strategies and environments."
+      - "Consider testing pipeline security and compliance requirements."
+    placeholders:
+      - name: PIPELINE_SYSTEM
+        description: "Pipeline system (e.g., GitHub Actions workflow, GitLab CI pipeline, Jenkins pipeline, Azure DevOps)"
+
+  - name: "Generate Kubernetes Deployment Testing"
+    id: devops-generate-k8s-deployment-tests
+    purpose: "Create comprehensive test suites for Kubernetes deployments, configurations, and cluster operations."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in Kubernetes testing and cluster validation.
+
+      Generate comprehensive Kubernetes tests for [K8S_DEPLOYMENT] including:
+
+      - Manifest Validation Tests: Verify YAML syntax, resource definitions, and Kubernetes API compliance
+      - Deployment Strategy Tests: Test rolling updates, blue-green deployments, and canary releases
+      - Resource Management Tests: Validate resource requests, limits, and cluster capacity
+      - Network Policy Tests: Test service discovery, network segmentation, and traffic routing
+      - Security Configuration Tests: Verify RBAC, security contexts, and admission controller policies
+      - Persistence Tests: Test persistent volumes, storage classes, and data persistence
+      - Scaling Tests: Validate horizontal pod autoscaling, cluster autoscaling, and performance scaling
+
+      Requirements:
+      - Include testing in ephemeral test clusters with proper cleanup
+      - Provide integration testing with service mesh and ingress controllers
+      - Include chaos engineering tests for resilience validation
+      - Add multi-cluster testing and federation scenarios
+      - Include monitoring and observability testing for deployed applications
+      - Provide load testing and performance validation for Kubernetes workloads
+
+      Generate complete Kubernetes testing framework with cluster validation and application testing.
+    notes:
+      - "Use test clusters to avoid impacting production environments."
+      - "Include testing for different Kubernetes versions and configurations."
+      - "Focus on testing both infrastructure and application aspects."
+    placeholders:
+      - name: K8S_DEPLOYMENT
+        description: "Kubernetes deployment (e.g., microservices application, web application, data processing workload)"
+
+  - name: "Generate Monitoring and Alerting Tests"
+    id: devops-generate-monitoring-tests
+    purpose: "Create comprehensive test suites for monitoring systems, alerting rules, and observability configurations."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in monitoring system testing and observability validation.
+
+      Generate comprehensive monitoring tests for [MONITORING_SETUP] including:
+
+      - Configuration Validation Tests: Verify monitoring configuration syntax, rule definitions, and target discovery
+      - Data Collection Tests: Test metric scraping, log ingestion, and trace collection
+      - Alert Rule Tests: Validate alert conditions, thresholds, and notification routing
+      - Dashboard Tests: Test dashboard functionality, query performance, and visualization accuracy
+      - Integration Tests: Verify external system integrations, webhook delivery, and API connectivity
+      - Performance Tests: Test monitoring system performance, data retention, and query efficiency
+      - Failover Tests: Validate monitoring system reliability, backup procedures, and disaster recovery
+
+      Requirements:
+      - Include synthetic monitoring tests with simulated scenarios
+      - Provide alert testing with mock data and controlled trigger conditions
+      - Include dashboard testing with automated screenshot comparison
+      - Add load testing for monitoring system capacity and performance
+      - Include data quality testing and metric validation
+      - Provide monitoring system backup and recovery testing
+
+      Generate complete monitoring testing framework with validation procedures and automation.
+    notes:
+      - "Include testing for both infrastructure and application monitoring."
+      - "Focus on testing alert accuracy and reducing false positives."
+      - "Consider testing monitoring system scalability and performance."
+    placeholders:
+      - name: MONITORING_SETUP
+        description: "Monitoring setup (e.g., Prometheus/Grafana stack, Datadog configuration, ELK stack, cloud monitoring)"
+
+  - name: "Generate Security Configuration Tests"
+    id: devops-generate-security-tests
+    purpose: "Create comprehensive test suites for security configurations, policies, and compliance validation."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in security testing and compliance validation.
+
+      Generate comprehensive security tests for [SECURITY_CONFIGURATION] including:
+
+      - Policy Validation Tests: Verify security policy syntax, rule definitions, and enforcement mechanisms
+      - Access Control Tests: Test authentication, authorization, and privilege escalation prevention
+      - Network Security Tests: Validate firewall rules, network segmentation, and traffic filtering
+      - Encryption Tests: Test data encryption, certificate management, and secure communication
+      - Vulnerability Tests: Validate vulnerability scanning, patch management, and security updates
+      - Compliance Tests: Test regulatory compliance, audit requirements, and documentation
+      - Incident Response Tests: Validate security incident detection, response procedures, and recovery
+
+      Requirements:
+      - Include penetration testing scenarios with controlled attack simulations
+      - Provide compliance testing with automated policy validation
+      - Include security scanning integration with CI/CD pipelines
+      - Add threat modeling validation and security architecture testing
+      - Include security monitoring and incident response testing
+      - Provide security metrics and KPI validation
+
+      Generate complete security testing framework with validation procedures and compliance verification.
+    notes:
+      - "Include both preventive and detective security control testing."
+      - "Focus on testing security policies and compliance requirements."
+      - "Consider testing security incident response and recovery procedures."
+    placeholders:
+      - name: SECURITY_CONFIGURATION
+        description: "Security configuration (e.g., Kubernetes security policies, cloud security groups, network ACLs, RBAC configuration)"
+
+  - name: "Generate Network Configuration Tests"
+    id: devops-generate-network-tests
+    purpose: "Create comprehensive test suites for network configurations, connectivity, and traffic management."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in network testing and connectivity validation.
+
+      Generate comprehensive network tests for [NETWORK_INFRASTRUCTURE] including:
+
+      - Connectivity Tests: Verify network reachability, routing tables, and service discovery
+      - Load Balancer Tests: Test traffic distribution, health checks, and failover mechanisms
+      - DNS Resolution Tests: Validate DNS configuration, resolution accuracy, and performance
+      - Firewall Rule Tests: Test security group rules, network ACLs, and traffic filtering
+      - Performance Tests: Validate network latency, bandwidth utilization, and throughput
+      - SSL/TLS Tests: Test certificate configuration, encryption protocols, and security
+      - Multi-Region Tests: Validate cross-region connectivity, replication, and disaster recovery
+
+      Requirements:
+      - Include network topology testing with various traffic patterns
+      - Provide load testing with realistic traffic simulation
+      - Include security testing for network vulnerabilities and misconfigurations
+      - Add performance benchmarking and optimization validation
+      - Include network monitoring and alerting validation
+      - Provide network troubleshooting and diagnostic procedures
+
+      Generate complete network testing framework with validation procedures and performance analysis.
+    notes:
+      - "Include testing for different network architectures and topologies."
+      - "Focus on testing network performance and security."
+      - "Consider testing network resilience and failover scenarios."
+    placeholders:
+      - name: NETWORK_INFRASTRUCTURE
+        description: "Network infrastructure (e.g., VPC configuration, service mesh networking, load balancer setup, CDN configuration)"
+
+  - name: "Generate Database and Storage Tests"
+    id: devops-generate-database-tests
+    purpose: "Create comprehensive test suites for database configurations, storage systems, and data management."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in database testing and storage validation.
+
+      Generate comprehensive database tests for [DATABASE_SYSTEM] including:
+
+      - Configuration Validation Tests: Verify database configuration, parameter settings, and optimization
+      - Connection Tests: Test database connectivity, connection pooling, and authentication
+      - Performance Tests: Validate query performance, indexing efficiency, and throughput
+      - Backup and Recovery Tests: Test backup procedures, restoration processes, and data integrity
+      - Replication Tests: Validate data replication, synchronization, and consistency
+      - Security Tests: Test access controls, encryption, and compliance requirements
+      - Scaling Tests: Validate horizontal scaling, read replicas, and capacity management
+
+      Requirements:
+      - Include database schema testing with migration validation
+      - Provide performance benchmarking with realistic workload simulation
+      - Include disaster recovery testing with automated failover scenarios
+      - Add data quality testing and integrity validation
+      - Include monitoring and alerting validation for database health
+      - Provide capacity planning and resource optimization testing
+
+      Generate complete database testing framework with validation procedures and performance analysis.
+    notes:
+      - "Include testing for different database engines and configurations."
+      - "Focus on testing data integrity and backup reliability."
+      - "Consider testing database performance under various load conditions."
+    placeholders:
+      - name: DATABASE_SYSTEM
+        description: "Database system (e.g., PostgreSQL cluster, MongoDB deployment, Redis configuration, data warehouse setup)"
+
+  - name: "Generate API and Service Tests"
+    id: devops-generate-api-service-tests
+    purpose: "Create comprehensive test suites for APIs, microservices, and service integrations."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in API testing and service validation.
+
+      Generate comprehensive API tests for [API_SERVICE] including:
+
+      - Functional Tests: Verify API endpoints, request/response handling, and business logic
+      - Performance Tests: Test API response times, throughput, and scalability
+      - Security Tests: Validate authentication, authorization, and data protection
+      - Integration Tests: Test service-to-service communication and external dependencies
+      - Contract Tests: Verify API contracts, schema validation, and backward compatibility
+      - Error Handling Tests: Test error responses, exception handling, and recovery mechanisms
+      - Load Tests: Validate API performance under different traffic patterns and stress conditions
+
+      Requirements:
+      - Include API testing with automated test data generation
+      - Provide performance testing with realistic load scenarios
+      - Include security testing with authentication and authorization validation
+      - Add contract testing with consumer-driven contracts
+      - Include monitoring and observability testing for API metrics
+      - Provide API documentation testing and validation
+
+      Generate complete API testing framework with validation procedures and performance analysis.
+    notes:
+      - "Include testing for different API protocols and standards."
+      - "Focus on testing API reliability and performance."
+      - "Consider testing API security and compliance requirements."
+    placeholders:
+      - name: API_SERVICE
+        description: "API service (e.g., REST API, GraphQL service, gRPC service, microservice endpoint)"
+
+  - name: "Generate Backup and Recovery Tests"
+    id: devops-generate-backup-recovery-tests
+    purpose: "Create comprehensive test suites for backup systems, disaster recovery procedures, and data protection."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in backup testing and disaster recovery validation.
+
+      Generate comprehensive backup and recovery tests for [BACKUP_SYSTEM] including:
+
+      - Backup Validation Tests: Verify backup completion, data integrity, and backup verification
+      - Recovery Process Tests: Test restoration procedures, recovery time, and data consistency
+      - Disaster Recovery Tests: Validate failover mechanisms, cross-region recovery, and business continuity
+      - Performance Tests: Test backup and recovery performance, resource utilization, and optimization
+      - Security Tests: Validate backup encryption, access controls, and compliance requirements
+      - Automation Tests: Test backup scheduling, retention policies, and lifecycle management
+      - Monitoring Tests: Validate backup monitoring, alerting, and failure detection
+
+      Requirements:
+      - Include automated testing with regular backup validation
+      - Provide disaster recovery simulation with controlled failure scenarios
+      - Include performance testing with realistic data volumes
+      - Add compliance testing with regulatory requirements validation
+      - Include backup system monitoring and alerting validation
+      - Provide recovery time and recovery point objective testing
+
+      Generate complete backup testing framework with validation procedures and recovery analysis.
+    notes:
+      - "Include testing for different backup strategies and retention policies."
+      - "Focus on testing recovery reliability and data integrity."
+      - "Consider testing backup performance and storage optimization."
+    placeholders:
+      - name: BACKUP_SYSTEM
+        description: "Backup system (e.g., database backups, application data, configuration backups, cross-region replication)"
+
+  - name: "Generate Advanced Infrastructure Testing Suite"
+    id: devops-advanced-infrastructure-testing
+    purpose: "Create comprehensive testing frameworks for complex infrastructure deployments with advanced validation and verification."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced infrastructure testing and enterprise validation.
+
+      Generate advanced infrastructure tests for [INFRASTRUCTURE_PLATFORM] including:
+
+      - End-to-End Testing: Comprehensive infrastructure workflow testing with realistic scenarios
+      - Chaos Engineering Tests: Resilience testing with controlled failure injection and recovery validation
+      - Performance Benchmarking: Infrastructure performance testing with capacity planning and optimization
+      - Security Penetration Tests: Advanced security testing with vulnerability assessment and threat simulation
+      - Compliance Validation Tests: Automated compliance testing with regulatory requirements and audit validation
+      - Multi-Environment Tests: Cross-environment testing with configuration drift detection and consistency validation
+      - Integration Testing: Complex system integration testing with dependency management and service interaction
+
+      Requirements:
+      - Include automated testing with enterprise-scale infrastructure simulation
+      - Provide advanced testing frameworks with machine learning and predictive validation
+      - Include comprehensive reporting with detailed analysis and recommendations
+      - Add performance optimization testing with cost-benefit analysis
+      - Include security testing with threat modeling and risk assessment
+      - Provide testing automation with CI/CD integration and continuous validation
+
+      Generate comprehensive advanced testing framework with enterprise-scale validation and optimization.
+    notes:
+      - "Focus on testing complex infrastructure scenarios and enterprise requirements."
+      - "Include advanced testing techniques and automation frameworks."
+      - "Consider testing scalability, reliability, and performance optimization."
+    placeholders:
+      - name: INFRASTRUCTURE_PLATFORM
+        description: "Infrastructure platform (e.g., multi-cloud deployment, enterprise Kubernetes platform, hybrid infrastructure)"
+
+  - name: "Generate Advanced Security Testing Framework"
+    id: devops-advanced-security-testing
+    purpose: "Create comprehensive security testing frameworks with advanced threat simulation and compliance validation."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced security testing and threat validation.
+
+      Generate advanced security tests for [SECURITY_INFRASTRUCTURE] including:
+
+      - Threat Simulation Tests: Advanced threat modeling with realistic attack scenario simulation
+      - Penetration Testing Framework: Automated penetration testing with vulnerability exploitation and impact assessment
+      - Compliance Automation Tests: Comprehensive compliance testing with regulatory framework validation
+      - Zero-Trust Validation Tests: Zero-trust architecture testing with micro-segmentation and policy validation
+      - AI-Powered Security Tests: Machine learning-based security testing with anomaly detection and behavioral analysis
+      - Incident Response Tests: Security incident simulation with automated response validation and recovery testing
+      - Security Orchestration Tests: SOAR platform testing with workflow automation and integration validation
+
+      Requirements:
+      - Include advanced security testing with realistic threat landscape simulation
+      - Provide automated testing frameworks with AI-powered analysis and recommendations
+      - Include comprehensive security reporting with risk assessment and mitigation strategies
+      - Add compliance testing with automated evidence collection and audit validation
+      - Include security monitoring testing with threat intelligence integration
+      - Provide security automation testing with orchestration and response validation
+
+      Generate comprehensive advanced security testing framework with threat simulation and compliance automation.
+    notes:
+      - "Focus on testing advanced security scenarios and enterprise threat landscape."
+      - "Include AI-powered security testing and automation frameworks."
+      - "Consider testing security resilience and incident response capabilities."
+    placeholders:
+      - name: SECURITY_INFRASTRUCTURE
+        description: "Security infrastructure (e.g., enterprise security operations, cloud-native security, zero-trust architecture)"
+
+  - name: "Generate Advanced Performance Testing Suite"
+    id: devops-advanced-performance-testing
+    purpose: "Create comprehensive performance testing frameworks with advanced analytics and optimization validation."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced performance testing and optimization validation.
+
+      Generate advanced performance tests for [PERFORMANCE_SYSTEM] including:
+
+      - Load Testing Framework: Comprehensive load testing with realistic traffic patterns and user behavior simulation
+      - Stress Testing Suite: Advanced stress testing with capacity limits and failure point identification
+      - Performance Regression Tests: Automated performance regression testing with baseline comparison and trend analysis
+      - Scalability Validation Tests: Horizontal and vertical scalability testing with resource optimization validation
+      - Latency Analysis Tests: Advanced latency testing with geographic distribution and edge performance validation
+      - Resource Optimization Tests: Performance optimization testing with cost-efficiency analysis and resource tuning
+      - Predictive Performance Tests: Machine learning-based performance prediction with capacity forecasting and optimization
+
+      Requirements:
+      - Include advanced performance testing with realistic simulation and analytics
+      - Provide automated testing frameworks with AI-powered analysis and optimization recommendations
+      - Include comprehensive performance reporting with detailed metrics and visualization
+      - Add performance optimization testing with cost-benefit analysis and resource efficiency
+      - Include monitoring integration testing with performance alerting and automated response
+      - Provide performance automation testing with continuous optimization and feedback loops
+
+      Generate comprehensive advanced performance testing framework with optimization automation and predictive analytics.
+    notes:
+      - "Focus on testing complex performance scenarios and optimization strategies."
+      - "Include advanced performance analytics and machine learning integration."
+      - "Consider testing performance scalability and resource optimization."
+    placeholders:
+      - name: PERFORMANCE_SYSTEM
+        description: "Performance system (e.g., high-scale web application, distributed microservices, real-time data processing)"
+
+  - name: "Generate Advanced Observability Testing"
+    id: devops-advanced-observability-testing
+    purpose: "Create comprehensive testing frameworks for observability systems with advanced monitoring and analytics validation."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced observability testing and monitoring validation.
+
+      Generate advanced observability tests for [OBSERVABILITY_PLATFORM] including:
+
+      - Telemetry Validation Tests: Comprehensive telemetry testing with metrics, logs, and traces validation
+      - Dashboard Testing Framework: Advanced dashboard testing with automated visualization validation and user experience testing
+      - Alert Testing Suite: Intelligent alerting testing with machine learning-based anomaly detection and noise reduction validation
+      - Correlation Analysis Tests: Advanced correlation testing with multi-dimensional analysis and root cause identification
+      - Performance Analytics Tests: Observability performance testing with query optimization and data pipeline validation
+      - AI-Powered Insights Tests: Machine learning integration testing with predictive analytics and automated insights validation
+      - Observability Automation Tests: Automated observability testing with self-healing systems and intelligent operations validation
+
+      Requirements:
+      - Include advanced observability testing with realistic data volumes and complexity
+      - Provide automated testing frameworks with AI-powered analysis and intelligent validation
+      - Include comprehensive observability reporting with advanced analytics and recommendations
+      - Add observability optimization testing with cost-efficiency analysis and resource tuning
+      - Include integration testing with business intelligence and operational automation
+      - Provide observability governance testing with data quality and compliance validation
+
+      Generate comprehensive advanced observability testing framework with intelligent automation and predictive capabilities.
+    notes:
+      - "Focus on testing complex observability scenarios and intelligent automation."
+      - "Include advanced analytics and machine learning integration testing."
+      - "Consider testing observability scalability and cost optimization."
+    placeholders:
+      - name: OBSERVABILITY_PLATFORM
+        description: "Observability platform (e.g., enterprise monitoring stack, cloud-native observability, intelligent operations platform)"
+
+  - name: "Generate Advanced Multi-Cloud Testing Framework"
+    id: devops-advanced-multicloud-testing
+    purpose: "Create comprehensive testing frameworks for multi-cloud deployments with advanced validation and optimization."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced multi-cloud testing and validation.
+
+      Generate advanced multi-cloud tests for [MULTICLOUD_DEPLOYMENT] including:
+
+      - Cross-Cloud Integration Tests: Comprehensive multi-cloud integration testing with service mesh and data synchronization validation
+      - Disaster Recovery Tests: Advanced disaster recovery testing with cross-cloud failover and business continuity validation
+      - Performance Optimization Tests: Multi-cloud performance testing with workload placement optimization and latency validation
+      - Cost Optimization Tests: Advanced cost testing with resource arbitrage and optimization across cloud providers
+      - Security Compliance Tests: Multi-cloud security testing with consistent policy enforcement and compliance validation
+      - Data Consistency Tests: Advanced data testing with cross-cloud synchronization and consistency validation
+      - Operational Excellence Tests: Multi-cloud operations testing with unified management and monitoring validation
+
+      Requirements:
+      - Include advanced multi-cloud testing with realistic enterprise scenarios and complexity
+      - Provide automated testing frameworks with cloud-agnostic validation and optimization
+      - Include comprehensive multi-cloud reporting with cost analysis and performance optimization
+      - Add governance testing with policy enforcement and compliance validation across clouds
+      - Include operational testing with unified monitoring and management validation
+      - Provide automation testing with orchestration and coordination across cloud providers
+
+      Generate comprehensive advanced multi-cloud testing framework with enterprise-scale validation and optimization.
+    notes:
+      - "Focus on testing complex multi-cloud scenarios and enterprise requirements."
+      - "Include advanced multi-cloud patterns and optimization strategies testing."
+      - "Consider testing multi-cloud governance and operational excellence."
+    placeholders:
+      - name: MULTICLOUD_DEPLOYMENT
+        description: "Multi-cloud deployment (e.g., AWS-Azure hybrid, enterprise multi-cloud platform, global cloud distribution)"
+
+  - name: "Generate Advanced Automation Testing Suite"
+    id: devops-advanced-automation-testing
+    purpose: "Create comprehensive testing frameworks for automation systems with advanced validation and intelligence."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced automation testing and intelligent validation.
+
+      Generate advanced automation tests for [AUTOMATION_PLATFORM] including:
+
+      - Workflow Automation Tests: Comprehensive automation workflow testing with complex scenario validation and optimization
+      - Policy-as-Code Tests: Advanced policy testing with automated compliance validation and governance enforcement
+      - Self-Healing System Tests: Intelligent automation testing with self-healing capabilities and automated recovery validation
+      - Machine Learning Integration Tests: AI-powered automation testing with machine learning validation and optimization
+      - Orchestration Testing Framework: Advanced orchestration testing with complex dependency management and coordination validation
+      - Continuous Optimization Tests: Automated optimization testing with feedback loops and continuous improvement validation
+      - Enterprise Integration Tests: Advanced integration testing with enterprise systems and legacy application validation
+
+      Requirements:
+      - Include advanced automation testing with enterprise-scale complexity and intelligence
+      - Provide automated testing frameworks with AI-powered validation and optimization
+      - Include comprehensive automation reporting with intelligent analysis and recommendations
+      - Add optimization testing with performance analysis and efficiency validation
+      - Include governance testing with policy enforcement and compliance automation
+      - Provide integration testing with enterprise systems and operational workflows
+
+      Generate comprehensive advanced automation testing framework with intelligent validation and enterprise integration.
+    notes:
+      - "Focus on testing complex automation scenarios and intelligent systems."
+      - "Include advanced automation patterns and AI integration testing."
+      - "Consider testing automation scalability and enterprise requirements."
+    placeholders:
+      - name: AUTOMATION_PLATFORM
+        description: "Automation platform (e.g., enterprise automation suite, intelligent operations platform, self-healing infrastructure)"
+
+  - name: "Generate Advanced Compliance Testing Framework"
+    id: devops-advanced-compliance-testing
+    purpose: "Create comprehensive testing frameworks for compliance automation with advanced validation and audit capabilities."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced compliance testing and regulatory validation.
+
+      Generate advanced compliance tests for [COMPLIANCE_FRAMEWORK] including:
+
+      - Regulatory Compliance Tests: Comprehensive compliance testing with automated regulatory framework validation
+      - Audit Automation Tests: Advanced audit testing with automated evidence collection and validation
+      - Policy Enforcement Tests: Comprehensive policy testing with automated enforcement and violation detection
+      - Risk Assessment Tests: Advanced risk testing with automated assessment and mitigation validation
+      - Continuous Compliance Tests: Automated compliance monitoring with real-time validation and alerting
+      - Compliance Analytics Tests: Advanced compliance analytics with trend analysis and predictive validation
+      - Integration Testing Framework: Comprehensive integration testing with existing compliance tools and workflows
+
+      Requirements:
+      - Include advanced compliance testing with enterprise-scale regulatory requirements
+      - Provide automated testing frameworks with intelligent compliance validation and analytics
+      - Include comprehensive compliance reporting with audit trails and evidence management
+      - Add risk testing with automated assessment and mitigation strategies
+      - Include governance testing with policy automation and enforcement validation
+      - Provide integration testing with compliance tools and regulatory reporting systems
+
+      Generate comprehensive advanced compliance testing framework with automated validation and intelligent analytics.
+    notes:
+      - "Focus on testing complex compliance scenarios and regulatory requirements."
+      - "Include advanced compliance automation and intelligence frameworks."
+      - "Consider testing compliance scalability and enterprise governance."
+    placeholders:
+      - name: COMPLIANCE_FRAMEWORK
+        description: "Compliance framework (e.g., PCI DSS Level 1, SOC 2 Type II, enterprise governance, regulatory automation)"
+
+  - name: "Generate Advanced GitOps Testing Suite"
+    id: devops-advanced-gitops-testing
+    purpose: "Create comprehensive testing frameworks for GitOps workflows with advanced validation and automation."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced GitOps testing and workflow validation.
+
+      Generate advanced GitOps tests for [GITOPS_PLATFORM] including:
+
+      - Workflow Validation Tests: Comprehensive GitOps workflow testing with complex deployment scenario validation
+      - Policy Automation Tests: Advanced policy testing with GitOps policy enforcement and governance validation
+      - Multi-Cluster Tests: Comprehensive multi-cluster testing with GitOps federation and coordination validation
+      - Security Integration Tests: Advanced security testing with GitOps security policies and compliance validation
+      - Drift Detection Tests: Comprehensive drift testing with automated detection and remediation validation
+      - Performance Optimization Tests: Advanced GitOps performance testing with optimization and scalability validation
+      - Enterprise Integration Tests: Comprehensive enterprise testing with complex organizational workflows and integration
+
+      Requirements:
+      - Include advanced GitOps testing with enterprise-scale complexity and scenarios
+      - Provide automated testing frameworks with intelligent GitOps validation and optimization
+      - Include comprehensive GitOps reporting with workflow analysis and performance metrics
+      - Add security testing with policy enforcement and compliance validation
+      - Include operational testing with drift detection and automated remediation
+      - Provide integration testing with enterprise tools and organizational workflows
+
+      Generate comprehensive advanced GitOps testing framework with enterprise validation and intelligent automation.
+    notes:
+      - "Focus on testing complex GitOps scenarios and enterprise workflows."
+      - "Include advanced GitOps patterns and automation frameworks."
+      - "Consider testing GitOps scalability and organizational adoption."
+    placeholders:
+      - name: GITOPS_PLATFORM
+        description: "GitOps platform (e.g., enterprise ArgoCD deployment, multi-cluster Flux, advanced GitOps orchestration)"
+
+  - name: "Generate Advanced Service Mesh Testing"
+    id: devops-advanced-service-mesh-testing
+    purpose: "Create comprehensive testing frameworks for service mesh deployments with advanced validation and optimization."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced service mesh testing and microservices validation.
+
+      Generate advanced service mesh tests for [SERVICE_MESH_PLATFORM] including:
+
+      - Traffic Management Tests: Comprehensive traffic testing with advanced routing, load balancing, and policy validation
+      - Security Policy Tests: Advanced security testing with mTLS, authentication, and authorization validation
+      - Observability Integration Tests: Comprehensive observability testing with distributed tracing and metrics validation
+      - Performance Optimization Tests: Advanced performance testing with latency optimization and resource efficiency validation
+      - Resilience Testing Framework: Comprehensive resilience testing with chaos engineering and failure injection validation
+      - Multi-Cluster Tests: Advanced multi-cluster testing with service mesh federation and cross-cluster communication
+      - Enterprise Integration Tests: Comprehensive enterprise testing with complex microservices architectures and integration
+
+      Requirements:
+      - Include advanced service mesh testing with enterprise-scale microservices complexity
+      - Provide automated testing frameworks with intelligent service mesh validation and optimization
+      - Include comprehensive service mesh reporting with performance analysis and security validation
+      - Add resilience testing with chaos engineering and automated recovery validation
+      - Include operational testing with observability and monitoring integration
+      - Provide integration testing with enterprise microservices and complex architectures
+
+      Generate comprehensive advanced service mesh testing framework with enterprise validation and intelligent optimization.
+    notes:
+      - "Focus on testing complex service mesh scenarios and enterprise microservices."
+      - "Include advanced service mesh patterns and optimization frameworks."
+      - "Consider testing service mesh scalability and operational complexity."
+    placeholders:
+      - name: SERVICE_MESH_PLATFORM
+        description: "Service mesh platform (e.g., enterprise Istio deployment, Linkerd service mesh, advanced mesh orchestration)" 

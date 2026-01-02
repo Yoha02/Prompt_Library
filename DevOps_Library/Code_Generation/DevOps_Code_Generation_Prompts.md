@@ -1,0 +1,707 @@
+# DevOps Code Generation Prompts
+
+This document contains a collection of prompts for generating DevOps code and configurations, specifically designed for use with LLM assistants like GitHub Copilot.
+
+## Table of Contents
+
+### Standard Prompts (1-10)
+1. [Generate Basic CI/CD Pipeline Configuration](#generate-basic-cicd-pipeline-configuration)
+2. [Generate Terraform Infrastructure Module](#generate-terraform-infrastructure-module)
+3. [Generate Kubernetes Deployment Manifest](#generate-kubernetes-deployment-manifest)
+4. [Generate Docker Multi-Stage Dockerfile](#generate-docker-multi-stage-dockerfile)
+5. [Generate Monitoring and Alerting Configuration](#generate-monitoring-and-alerting-configuration)
+6. [Generate Helm Chart Template](#generate-helm-chart-template)
+7. [Generate GitOps Workflow Configuration](#generate-gitops-workflow-configuration)
+8. [Generate Infrastructure Security Policies](#generate-infrastructure-security-policies)
+9. [Generate Backup and Disaster Recovery Automation](#generate-backup-and-disaster-recovery-automation)
+10. [Generate Cost Optimization Automation](#generate-cost-optimization-automation)
+
+### Advanced Prompts (11-20)
+11. [Generate Advanced Multi-Cloud Deployment Pipeline](#generate-advanced-multi-cloud-deployment-pipeline)
+12. [Generate Enterprise-Grade Service Mesh Configuration](#generate-enterprise-grade-service-mesh-configuration)
+13. [Generate Automated Security Compliance Framework](#generate-automated-security-compliance-framework)
+14. [Generate Advanced Infrastructure as Code Pipeline](#generate-advanced-infrastructure-as-code-pipeline)
+15. [Generate Enterprise GitOps Platform](#generate-enterprise-gitops-platform)
+16. [Generate Advanced Observability Stack](#generate-advanced-observability-stack)
+17. [Generate Automated Disaster Recovery Orchestration](#generate-automated-disaster-recovery-orchestration)
+18. [Generate Advanced Performance Optimization Framework](#generate-advanced-performance-optimization-framework)
+19. [Generate Advanced Security Incident Response Automation](#generate-advanced-security-incident-response-automation)
+
+---
+
+## Generate Basic CI/CD Pipeline Configuration
+
+### Purpose
+
+Create a foundational CI/CD pipeline configuration for containerized applications with build, test, and deployment stages.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in CI/CD pipeline automation.
+
+Generate a complete CI/CD pipeline configuration for [PLATFORM] that includes:
+
+- Build Stage: Compile/build the [APPLICATION_TYPE] application and create container images
+- Test Stage: Run unit tests, integration tests, and security scans
+- Deploy Stage: Deploy to [ENVIRONMENT] with appropriate gates and approvals
+- Environment Variables: Include necessary secrets and configuration management
+- Notifications: Set up alerts for pipeline failures and successes
+- Rollback Strategy: Include automated rollback on deployment failure
+
+Requirements:
+- Use [CONTAINER_REGISTRY] for image storage
+- Implement security scanning with vulnerability thresholds
+- Include deployment gates for production environments
+- Support multi-environment promotion (dev -> staging -> prod)
+
+Provide the complete pipeline configuration with clear comments explaining each stage.
+```
+
+**Notes:** Customize the pipeline stages based on your application stack and deployment requirements. Include proper secret management and avoid hardcoding sensitive values. Consider implementing blue-green or canary deployment strategies for production.
+
+---
+
+## Generate Terraform Infrastructure Module
+
+### Purpose
+
+Create reusable Terraform modules for common infrastructure patterns with proper input validation and outputs.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in Infrastructure as Code with Terraform.
+
+Generate a Terraform module for [INFRASTRUCTURE_COMPONENT] with the following structure:
+
+- Variables: Define input variables with proper types, descriptions, and validation rules
+- Resources: Create the main infrastructure resources with appropriate dependencies
+- Data Sources: Include necessary data lookups for existing resources
+- Locals: Define computed values and transformations
+- Outputs: Export important resource attributes for use by other modules
+- Documentation: Include README.md with usage examples and requirements
+
+Requirements:
+- Follow Terraform best practices for module structure
+- Include proper tagging strategy for resource management
+- Implement security configurations and compliance requirements
+- Support multiple environments through variable parameterization
+- Include validation for critical input parameters
+
+Provide the complete module structure with all necessary files.
+```
+
+**Notes:** Follow semantic versioning for module releases and maintain backwards compatibility. Include examples directory with practical usage scenarios. Consider state management and module dependencies carefully.
+
+---
+
+## Generate Kubernetes Deployment Manifest
+
+### Purpose
+
+Create comprehensive Kubernetes deployment manifests with best practices for production-ready applications.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in Kubernetes orchestration.
+
+Generate complete Kubernetes manifests for deploying [APPLICATION_NAME] including:
+
+- Deployment: Configure pods with resource limits, health checks, and security contexts
+- Service: Expose the application with appropriate service type and port configuration
+- ConfigMap: Externalize application configuration
+- Secret: Manage sensitive data securely
+- HPA: Implement horizontal pod autoscaling based on CPU/memory metrics
+- NetworkPolicy: Define network segmentation and security rules
+- ServiceAccount: Configure RBAC with minimal required permissions
+
+Requirements:
+- Implement proper resource requests and limits
+- Configure readiness and liveness probes
+- Use non-root security contexts
+- Include proper labels and annotations for monitoring
+- Support rolling updates with zero downtime
+- Environment-specific configurations through overlays
+
+Provide all manifests with Kustomization for environment management.
+```
+
+**Notes:** Test deployments in staging environments before production rollout. Monitor resource usage and adjust limits based on actual consumption. Implement proper backup and disaster recovery procedures.
+
+---
+
+## Generate Docker Multi-Stage Dockerfile
+
+### Purpose
+
+Create optimized Docker images using multi-stage builds for reduced image size and improved security.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in container optimization and security.
+
+Generate a multi-stage Dockerfile for [APPLICATION_STACK] with the following stages:
+
+- Build Stage: Compile/build the application with all development dependencies
+- Test Stage: Run unit tests and security scans
+- Production Stage: Create minimal runtime image with only necessary dependencies
+- Security: Implement security best practices throughout the build process
+
+Requirements:
+- Use appropriate base images with minimal attack surface
+- Implement proper layer caching for build optimization
+- Configure non-root user for application execution
+- Include health check endpoint configuration
+- Optimize image size through dependency management
+- Add metadata labels for image tracking and compliance
+
+Provide the complete Dockerfile with build optimization comments.
+```
+
+**Notes:** Regularly update base images and scan for vulnerabilities. Use .dockerignore to exclude unnecessary files from build context. Consider using distroless or scratch images for maximum security.
+
+---
+
+## Generate Monitoring and Alerting Configuration
+
+### Purpose
+
+Create comprehensive monitoring setup with Prometheus, Grafana, and alerting rules for infrastructure and application metrics.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in observability and monitoring systems.
+
+Generate monitoring configuration for [SYSTEM_COMPONENT] including:
+
+- Prometheus Configuration: Scraping jobs, service discovery, and retention policies
+- Grafana Dashboards: Visualization panels for key metrics and SLIs
+- Alert Rules: Define alert conditions with appropriate thresholds and runbook links
+- AlertManager Config: Routing rules, notification channels, and escalation policies
+- Service Monitors: Kubernetes-native monitoring configuration
+- Recording Rules: Pre-computed metrics for dashboard optimization
+
+Requirements:
+- Implement SLI/SLO-based alerting with error budgets
+- Include both technical and business metrics
+- Configure proper alert routing and notification channels
+- Implement alert suppression and grouping rules
+- Include capacity planning and trend analysis dashboards
+- Support multi-environment monitoring with appropriate labeling
+
+Provide complete monitoring stack configuration with deployment instructions.
+```
+
+**Notes:** Tune alert thresholds based on historical data and business requirements. Implement proper metric retention and storage optimization. Include runbooks and escalation procedures for all critical alerts.
+
+---
+
+## Generate Helm Chart Template
+
+### Purpose
+
+Create flexible Helm charts for Kubernetes applications with templating and environment-specific value configurations.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in Kubernetes package management with Helm.
+
+Generate a complete Helm chart for [APPLICATION_TYPE] including:
+
+- Chart.yaml: Define chart metadata, version, and dependencies
+- Templates: Create templated Kubernetes manifests with conditional logic
+- Values.yaml: Default configuration values with clear documentation
+- Helpers: Define reusable template functions and naming conventions
+- Tests: Include chart testing configurations
+- NOTES.txt: Provide post-installation instructions and access information
+
+Requirements:
+- Implement flexible templating for different deployment scenarios
+- Support multiple environments through values files
+- Include proper RBAC configurations
+- Configure resource scaling and autoscaling options
+- Implement security policies and network configurations
+- Include upgrade and rollback strategies
+
+Provide the complete chart structure with environment-specific values examples.
+```
+
+**Notes:** Use semantic versioning for chart releases and maintain upgrade compatibility. Test charts thoroughly in staging environments before production deployment. Document all configuration options and their impact on application behavior.
+
+---
+
+## Generate GitOps Workflow Configuration
+
+### Purpose
+
+Set up GitOps workflows for automated deployment and configuration management using declarative approaches.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in GitOps practices and automated deployment workflows.
+
+Generate a complete GitOps setup for [APPLICATION_STACK] including:
+
+- Repository Structure: Organize application code, infrastructure code, and environment configurations
+- ArgoCD/Flux Configuration: Set up continuous deployment with automated sync policies
+- Environment Promotion: Define workflows for promoting changes across environments
+- Secret Management: Integrate with external secret management systems
+- Rollback Procedures: Implement automated rollback on deployment failures
+- Monitoring Integration: Connect deployment status with monitoring and alerting
+
+Requirements:
+- Implement branch-based environment management
+- Configure automated testing before deployment
+- Include proper access controls and approval workflows
+- Support both push and pull-based deployment models
+- Implement configuration drift detection and remediation
+- Include compliance and audit trail capabilities
+
+Provide complete GitOps configuration with repository structure and workflow definitions.
+```
+
+**Notes:** Ensure proper separation between application and infrastructure repositories. Implement proper secret rotation and management practices. Include disaster recovery procedures for GitOps infrastructure.
+
+---
+
+## Generate Infrastructure Security Policies
+
+### Purpose
+
+Create comprehensive security policies and configurations for infrastructure components using policy-as-code approaches.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in infrastructure security and compliance automation.
+
+Generate security policy configurations for [INFRASTRUCTURE_PLATFORM] including:
+
+- Network Policies: Define network segmentation and traffic control rules
+- RBAC Policies: Configure role-based access control with least privilege principles
+- Security Policies: Implement pod security standards and admission controllers
+- Compliance Scanning: Automate security compliance checks and reporting
+- Secret Management: Configure external secret management integration
+- Vulnerability Scanning: Implement container and infrastructure vulnerability scanning
+
+Requirements:
+- Implement defense in depth security strategy
+- Include PCI DSS compliance requirements for payment processing
+- Configure automated security scanning and remediation
+- Implement proper audit logging and monitoring
+- Include incident response procedures and automation
+- Support zero-trust security model principles
+
+Provide complete security policy configuration with implementation guidelines.
+```
+
+**Notes:** Regularly review and update security policies based on threat landscape changes. Implement proper security testing and validation procedures. Include security training and awareness documentation for development teams.
+
+---
+
+## Generate Backup and Disaster Recovery Automation
+
+### Purpose
+
+Create automated backup and disaster recovery solutions for critical infrastructure and data systems.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in business continuity and disaster recovery automation.
+
+Generate backup and disaster recovery automation for [SYSTEM_TYPE] including:
+
+- Backup Automation: Scheduled backups with retention policies and encryption
+- Cross-Region Replication: Implement geographic redundancy for critical data
+- Recovery Procedures: Automated recovery workflows with RTO/RPO compliance
+- Testing Automation: Regular disaster recovery testing and validation
+- Monitoring and Alerting: Backup success/failure monitoring and notifications
+- Documentation: Comprehensive runbooks and escalation procedures
+
+Requirements:
+- Implement automated backup verification and integrity checking
+- Configure cross-region replication for high availability
+- Include point-in-time recovery capabilities
+- Support both full and incremental backup strategies
+- Implement proper encryption for data at rest and in transit
+- Include compliance reporting and audit trail capabilities
+
+Provide complete backup and DR automation with testing procedures.
+```
+
+**Notes:** Regularly test recovery procedures to ensure they work when needed. Implement proper backup monitoring and alerting for early failure detection. Document recovery time objectives (RTO) and recovery point objectives (RPO) clearly.
+
+---
+
+## Generate Cost Optimization Automation
+
+### Purpose
+
+Create automated cost optimization solutions for cloud infrastructure with monitoring and rightsizing capabilities.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in cloud cost optimization and resource efficiency.
+
+Generate cost optimization automation for [CLOUD_PLATFORM] including:
+
+- Resource Rightsizing: Automated analysis and recommendations for resource optimization
+- Scheduling Automation: Automatic start/stop of non-production resources
+- Cost Monitoring: Real-time cost tracking with budget alerts and forecasting
+- Unused Resource Cleanup: Automated identification and cleanup of unused resources
+- Reserved Capacity Management: Optimize reserved instance and savings plan utilization
+- Multi-Cloud Cost Analysis: Compare costs across different cloud providers
+
+Requirements:
+- Implement automated resource tagging for cost allocation
+- Configure budget alerts with escalation procedures
+- Include cost optimization recommendations with business impact analysis
+- Support spot instance and preemptible instance management
+- Implement proper governance policies for resource provisioning
+- Include cost reporting and chargeback capabilities
+
+Provide complete cost optimization automation with monitoring dashboards.
+```
+
+**Notes:** Balance cost optimization with performance and availability requirements. Implement proper approval workflows for significant resource changes. Include cost trend analysis and forecasting for capacity planning.
+
+---
+
+## Generate Advanced Multi-Cloud Deployment Pipeline
+
+### Purpose
+
+Create sophisticated CI/CD pipelines that deploy applications across multiple cloud providers with failover and load balancing capabilities.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in multi-cloud strategies and enterprise-scale deployment automation.
+
+Generate an advanced multi-cloud deployment pipeline for [APPLICATION_ARCHITECTURE] including:
+
+- Multi-Cloud Orchestration: Deploy simultaneously to [PRIMARY_CLOUD] and [SECONDARY_CLOUD]
+- Environment Parity: Ensure consistent configurations across cloud providers
+- Traffic Management: Implement global load balancing with intelligent failover
+- Data Synchronization: Cross-cloud data replication and consistency strategies
+- Cost Optimization: Dynamic workload placement based on cost and performance
+- Compliance Management: Ensure regulatory compliance across different regions
+- Disaster Recovery: Automated failover and recovery procedures
+
+Requirements:
+- Implement blue-green deployments across cloud boundaries
+- Configure cross-cloud monitoring and observability
+- Include automated testing for multi-cloud scenarios
+- Support canary deployments with traffic splitting
+- Implement proper secret management across cloud providers
+- Include compliance validation and audit trail
+- Configure automated rollback procedures with health checks
+
+Provide complete pipeline configuration with cloud-agnostic resource definitions.
+```
+
+**Notes:** Consider network latency and data transfer costs in multi-cloud designs. Implement proper vendor lock-in mitigation strategies. Include comprehensive monitoring for cross-cloud dependencies.
+
+---
+
+## Generate Enterprise-Grade Service Mesh Configuration
+
+### Purpose
+
+Create comprehensive service mesh configurations for microservices with advanced traffic management, security, and observability features.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in microservices architecture and service mesh technologies.
+
+Generate a complete service mesh configuration for [MICROSERVICES_PLATFORM] using [SERVICE_MESH_TECHNOLOGY] including:
+
+- Service Discovery: Automatic service registration and discovery with health checking
+- Traffic Management: Advanced routing, load balancing, and circuit breaker patterns
+- Security Policies: mTLS, authentication, authorization, and network segmentation
+- Observability: Distributed tracing, metrics collection, and service dependency mapping
+- Fault Injection: Chaos engineering capabilities for resilience testing
+- Rate Limiting: Implement request rate limiting and quota management
+- A/B Testing: Traffic splitting for experimental feature rollouts
+
+Requirements:
+- Implement zero-trust security model with automatic certificate management
+- Configure advanced traffic policies for different service tiers
+- Include compliance requirements for data privacy and security
+- Support multi-region service mesh federation
+- Implement proper monitoring and alerting for service mesh components
+- Include performance optimization and capacity planning
+- Configure automated policy enforcement and validation
+
+Provide complete service mesh configuration with deployment and migration strategies.
+```
+
+**Notes:** Plan service mesh adoption gradually with pilot services before full rollout. Monitor service mesh overhead and performance impact on applications. Implement proper backup and recovery procedures for service mesh configuration.
+
+---
+
+## Generate Automated Security Compliance Framework
+
+### Purpose
+
+Create comprehensive automated security compliance framework for enterprise environments with continuous monitoring and remediation.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in security automation and compliance management for enterprise retail environments.
+
+Generate an automated security compliance framework for [COMPLIANCE_STANDARDS] including:
+
+- Policy Engine: Define and enforce security policies using [POLICY_FRAMEWORK]
+- Continuous Scanning: Automated vulnerability and compliance scanning across infrastructure
+- Remediation Workflows: Automated fixing of common security issues and misconfigurations
+- Audit Trail: Comprehensive logging and reporting for compliance audits
+- Risk Assessment: Automated risk scoring and prioritization of security findings
+- Integration Points: Connect with existing security tools and SIEM systems
+- Incident Response: Automated security incident detection and response workflows
+
+Requirements:
+- Implement continuous compliance monitoring with real-time alerts
+- Support PCI DSS requirements for payment card industry compliance
+- Include GDPR/CCPA compliance for customer data protection
+- Configure automated security patching with testing and rollback
+- Implement zero-trust architecture principles
+- Include security metrics and KPI tracking
+- Support multi-environment compliance validation
+
+Provide complete security automation framework with implementation roadmap.
+```
+
+**Notes:** Ensure compliance framework adapts to changing regulatory requirements. Implement proper security training and awareness programs for development teams. Include regular security assessment and penetration testing procedures.
+
+---
+
+## Generate Advanced Infrastructure as Code Pipeline
+
+### Purpose
+
+Create sophisticated Infrastructure as Code pipelines with advanced testing, security scanning, and compliance validation.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in advanced Infrastructure as Code practices and enterprise automation.
+
+Generate an advanced IaC pipeline for [INFRASTRUCTURE_SCOPE] using [IaC_TOOL] including:
+
+- Multi-Stage Testing: Unit tests, integration tests, and end-to-end infrastructure validation
+- Security Scanning: Static analysis, vulnerability scanning, and compliance checks
+- Cost Analysis: Infrastructure cost estimation and optimization recommendations
+- Drift Detection: Automated detection and remediation of configuration drift
+- Dependency Management: Advanced module versioning and dependency resolution
+- Preview and Planning: Detailed change impact analysis before deployment
+- Rollback Strategies: Automated rollback with state management and recovery
+
+Requirements:
+- Implement infrastructure testing frameworks with synthetic monitoring
+- Configure security policy validation using [SECURITY_SCANNER]
+- Include cost budgeting and approval workflows for expensive changes
+- Support infrastructure versioning with semantic releases
+- Implement proper state management with locking and backup
+- Include disaster recovery testing for infrastructure components
+- Configure advanced monitoring and alerting for infrastructure health
+
+Provide complete IaC pipeline with testing frameworks and validation procedures.
+```
+
+**Notes:** Implement proper branching strategies for infrastructure changes. Include comprehensive documentation and change management procedures. Consider blast radius and implement proper change isolation strategies.
+
+---
+
+## Generate Enterprise GitOps Platform
+
+### Purpose
+
+Create a complete enterprise GitOps platform with multi-tenant support, advanced security, and comprehensive governance capabilities.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in enterprise GitOps platforms and organizational scalability.
+
+Generate a comprehensive GitOps platform for [ORGANIZATION_SCALE] including:
+
+- Multi-Tenant Architecture: Support for multiple teams and projects with proper isolation
+- Advanced Security: RBAC, policy enforcement, and secret management integration
+- Governance Framework: Approval workflows, change management, and compliance tracking
+- Application Catalog: Self-service application deployment with standardized templates
+- Environment Management: Automated environment provisioning and lifecycle management
+- Advanced Monitoring: Comprehensive observability with deployment analytics
+- Integration Hub: Connect with existing tools and enterprise systems
+
+Requirements:
+- Implement progressive delivery with automated rollback capabilities
+- Configure enterprise SSO integration with fine-grained permissions
+- Include cost allocation and chargeback for different organizational units
+- Support multi-cluster and multi-cloud deployments
+- Implement comprehensive audit logging and compliance reporting
+- Configure advanced notification and escalation workflows
+- Include disaster recovery and business continuity capabilities
+
+Provide complete GitOps platform architecture with implementation phases.
+```
+
+**Notes:** Plan phased rollout starting with pilot teams before organization-wide adoption. Implement proper change management and training programs for adoption. Include comprehensive metrics and KPIs for GitOps platform success measurement.
+
+---
+
+## Generate Advanced Observability Stack
+
+### Purpose
+
+Create comprehensive observability infrastructure with distributed tracing, advanced analytics, and AI-powered insights.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in advanced observability and performance management for large-scale systems.
+
+Generate a complete observability stack for [SYSTEM_ARCHITECTURE] including:
+
+- Metrics Collection: Multi-dimensional metrics with custom business KPIs
+- Distributed Tracing: End-to-end request tracing across microservices boundaries
+- Log Aggregation: Structured logging with advanced search and analytics
+- Synthetic Monitoring: Proactive monitoring with realistic user journey simulation
+- AI-Powered Insights: Anomaly detection and predictive analytics
+- Service Level Management: SLI/SLO tracking with error budget management
+- Performance Profiling: Application and infrastructure performance analysis
+
+Requirements:
+- Implement OpenTelemetry for vendor-neutral observability
+- Configure advanced correlation between metrics, traces, and logs
+- Include capacity planning with predictive scaling recommendations
+- Support real-time alerting with intelligent noise reduction
+- Implement cost-optimized data retention and storage strategies
+- Configure advanced visualization with custom dashboards
+- Include automated incident response and escalation
+
+Provide complete observability architecture with data flow and integration patterns.
+```
+
+**Notes:** Consider data volume and storage costs when designing retention policies. Implement proper sampling strategies for high-volume trace data. Include observability for the observability stack itself (meta-monitoring).
+
+---
+
+## Generate Automated Disaster Recovery Orchestration
+
+### Purpose
+
+Create sophisticated disaster recovery orchestration with automated failover, data synchronization, and business continuity management.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in enterprise disaster recovery and business continuity automation.
+
+Generate an automated disaster recovery system for [BUSINESS_SYSTEM] including:
+
+- Automated Failover: Intelligent failover triggers with health monitoring
+- Data Synchronization: Real-time and batch data replication strategies
+- Recovery Orchestration: Automated recovery workflows with dependency management
+- Testing Automation: Regular DR testing with minimal business impact
+- Communication Systems: Automated stakeholder notification and status updates
+- Compliance Management: Ensure regulatory requirements during disaster scenarios
+- Performance Validation: Automated validation of recovered systems functionality
+
+Requirements:
+- Implement RTO (Recovery Time Objective) of [RTO_TARGET] minutes
+- Configure RPO (Recovery Point Objective) of [RPO_TARGET] minutes
+- Support cross-region and cross-cloud disaster recovery scenarios
+- Include automated capacity scaling for disaster recovery environments
+- Implement comprehensive monitoring and alerting during recovery
+- Configure proper security controls for disaster recovery procedures
+- Include automated rollback capabilities for failed recovery attempts
+
+Provide complete disaster recovery automation with testing and validation procedures.
+```
+
+**Notes:** Regularly test disaster recovery procedures to ensure effectiveness. Consider cascading failure scenarios and implement proper isolation. Include detailed communication plans for different stakeholder groups.
+
+---
+
+## Generate Advanced Performance Optimization Framework
+
+### Purpose
+
+Create comprehensive performance optimization framework with automated tuning, capacity planning, and cost efficiency analysis.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in performance optimization and capacity management for high-traffic retail systems.
+
+Generate a performance optimization framework for [WORKLOAD_TYPE] including:
+
+- Automated Scaling: Intelligent auto-scaling with predictive algorithms
+- Performance Profiling: Continuous performance monitoring and bottleneck identification
+- Resource Optimization: Automated resource rightsizing with cost-performance analysis
+- Cache Optimization: Multi-tier caching strategies with automated invalidation
+- Load Testing: Automated performance testing with realistic traffic patterns
+- Capacity Planning: Predictive capacity planning for peak shopping periods
+- Cost Efficiency: Performance-per-dollar optimization with budget constraints
+
+Requirements:
+- Implement machine learning-based performance prediction models
+- Configure automated performance testing for [PEAK_SCENARIO] scenarios
+- Include real-time performance optimization with feedback loops
+- Support geographic load distribution and edge optimization
+- Implement comprehensive performance SLI/SLO tracking
+- Configure automated alerting for performance degradation
+- Include performance regression detection and automated rollback
+
+Provide complete performance optimization framework with monitoring and automation.
+```
+
+**Notes:** Consider business impact when implementing performance optimizations. Include A/B testing capabilities for performance optimization validation. Implement proper performance benchmarking and baseline establishment.
+
+---
+
+## Generate Advanced Security Incident Response Automation
+
+### Purpose
+
+Create comprehensive automated security incident response system with threat detection, containment, and recovery capabilities.
+
+### Prompt
+
+```
+You are an expert DevOps engineer specializing in security automation and incident response for enterprise retail environments.
+
+Generate an automated security incident response system for [THREAT_LANDSCAPE] including:
+
+- Threat Detection: Multi-source threat intelligence with behavioral analysis
+- Automated Containment: Immediate isolation and containment of security threats
+- Forensic Collection: Automated evidence collection and preservation
+- Response Orchestration: Coordinated response workflows with stakeholder notification
+- Recovery Automation: Automated system recovery with security validation
+- Compliance Reporting: Automated incident reporting for regulatory requirements
+- Continuous Improvement: Post-incident analysis and response optimization
+
+Requirements:
+- Implement SOAR (Security Orchestration, Automation, and Response) capabilities
+- Configure integration with [SIEM_SYSTEM] and threat intelligence feeds
+- Include automated malware analysis and signature generation
+- Support zero-trust architecture enforcement during incidents
+- Implement proper evidence chain of custody procedures
+- Configure automated communication with law enforcement if required
+- Include incident classification and severity assessment automation
+
+Provide complete security incident response automation with playbooks and procedures.
+```
+
+**Notes:** Ensure incident response procedures comply with regulatory requirements. Include regular tabletop exercises and incident response training. Implement proper legal and privacy considerations for incident response. 

@@ -1,0 +1,629 @@
+# DevOps Documentation Prompts
+
+prompts:
+  - name: "Generate Infrastructure Documentation"
+    id: devops-generate-infrastructure-docs
+    purpose: "Create comprehensive infrastructure documentation including architecture diagrams, component descriptions, and operational procedures."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in technical documentation and infrastructure architecture.
+
+      Generate comprehensive infrastructure documentation for [INFRASTRUCTURE_SYSTEM] including:
+
+      - Architecture Overview: System architecture diagram and component relationships
+      - Component Descriptions: Detailed descriptions of each infrastructure component
+      - Network Architecture: Network topology, security groups, and connectivity patterns
+      - Deployment Procedures: Step-by-step deployment and configuration processes
+      - Monitoring and Alerting: Monitoring setup, alert configurations, and escalation procedures
+      - Security Configuration: Security policies, access controls, and compliance requirements
+      - Troubleshooting Guide: Common issues, diagnostic procedures, and resolution steps
+
+      Requirements:
+      - Use clear, technical language suitable for infrastructure teams
+      - Include configuration examples and command references
+      - Provide visual diagrams where appropriate (ASCII art or Mermaid syntax)
+      - Include version information and change tracking
+      - Add links to relevant tools and external documentation
+      - Include capacity planning and scaling considerations
+
+      Create documentation that serves as a comprehensive reference for infrastructure operations.
+    notes:
+      - "Include both high-level architectural views and detailed technical specifications."
+      - "Ensure documentation is maintained and updated with infrastructure changes."
+      - "Consider different audiences: architects, operators, and security teams."
+    placeholders:
+      - name: INFRASTRUCTURE_SYSTEM
+        description: "Infrastructure system to document (e.g., Kubernetes cluster, AWS environment, hybrid cloud platform)"
+
+  - name: "Generate Deployment Runbook"
+    id: devops-generate-deployment-runbook
+    purpose: "Create detailed deployment runbooks with step-by-step procedures, rollback plans, and emergency procedures."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in deployment automation and operational procedures.
+
+      Generate a comprehensive deployment runbook for [APPLICATION_NAME] including:
+
+      - Pre-deployment Checklist: Environment validation, dependency checks, and readiness verification
+      - Deployment Procedures: Step-by-step deployment process with commands and validations
+      - Post-deployment Validation: Testing procedures, health checks, and verification steps
+      - Rollback Procedures: Emergency rollback process with clear decision criteria
+      - Communication Protocol: Stakeholder notifications, status updates, and escalation paths
+      - Troubleshooting Section: Common deployment issues and resolution procedures
+      - Emergency Contacts: Contact information for escalation and support
+
+      Requirements:
+      - Include specific commands, scripts, and configuration examples
+      - Provide clear decision points and validation criteria
+      - Include timing estimates for each procedure
+      - Add safety checks and confirmation steps
+      - Include integration with monitoring and alerting systems
+      - Provide templates for communication and reporting
+
+      Create a runbook that enables reliable and repeatable deployments with clear emergency procedures.
+    notes:
+      - "Test runbook procedures regularly to ensure accuracy and completeness."
+      - "Include both manual and automated deployment procedures."
+      - "Consider different deployment scenarios: normal, emergency, and rollback."
+    placeholders:
+      - name: APPLICATION_NAME
+        description: "Application name (e.g., inventory-api, customer-portal, payment-gateway)"
+
+  - name: "Generate Incident Response Playbook"
+    id: devops-generate-incident-playbook
+    purpose: "Create detailed incident response playbooks for common infrastructure and application issues."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in incident management and operational procedures.
+
+      Generate an incident response playbook for [INCIDENT_TYPE] including:
+
+      - Incident Classification: Severity levels, impact assessment, and escalation criteria
+      - Initial Response: Immediate actions, triage procedures, and team notification
+      - Investigation Procedures: Diagnostic steps, data collection, and root cause analysis
+      - Containment Actions: Immediate fixes, workarounds, and damage limitation
+      - Resolution Steps: Permanent fix procedures, testing, and validation
+      - Communication Plan: Status updates, stakeholder notifications, and reporting
+      - Post-incident Activities: Documentation, lessons learned, and improvement actions
+
+      Requirements:
+      - Include specific diagnostic commands and troubleshooting procedures
+      - Provide clear decision trees and escalation paths
+      - Include integration with monitoring and alerting systems
+      - Add communication templates and status update procedures
+      - Include compliance and audit trail requirements
+      - Provide metrics and KPIs for incident management
+
+      Create a playbook that enables rapid incident response with comprehensive documentation.
+    notes:
+      - "Include contact information and escalation procedures for different incident severities."
+      - "Test playbook procedures through regular incident response drills."
+      - "Update playbooks based on actual incident experiences and lessons learned."
+    placeholders:
+      - name: INCIDENT_TYPE
+        description: "Incident type (e.g., database outage, network connectivity, security breach, performance degradation)"
+
+  - name: "Generate Operational Procedures Manual"
+    id: devops-generate-operational-manual
+    purpose: "Create comprehensive operational procedures manual covering routine maintenance, monitoring, and administrative tasks."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in operational procedures and system administration.
+
+      Generate an operational procedures manual for [SYSTEM_ENVIRONMENT] including:
+
+      - Routine Maintenance: Scheduled maintenance tasks, procedures, and checklists
+      - Monitoring Procedures: Health check routines, metric analysis, and alert response
+      - Backup Operations: Backup procedures, validation, and recovery testing
+      - Security Operations: Security monitoring, patch management, and compliance tasks
+      - Performance Management: Performance monitoring, optimization, and capacity planning
+      - Change Management: Change control procedures, approval workflows, and documentation
+      - Administrative Tasks: User management, access control, and system configuration
+
+      Requirements:
+      - Include specific procedures with step-by-step instructions
+      - Provide checklists and validation criteria for each procedure
+      - Include frequency and timing for routine tasks
+      - Add safety procedures and rollback options
+      - Include integration with ticketing and change management systems
+      - Provide templates for documentation and reporting
+
+      Create a manual that ensures consistent operational practices and system reliability.
+    notes:
+      - "Include procedures for both routine operations and emergency situations."
+      - "Ensure procedures are tested and validated by operational teams."
+      - "Consider automation opportunities for routine operational tasks."
+    placeholders:
+      - name: SYSTEM_ENVIRONMENT
+        description: "System environment (e.g., production Kubernetes cluster, cloud infrastructure, hybrid environment)"
+
+  - name: "Generate API Documentation"
+    id: devops-generate-api-documentation
+    purpose: "Create comprehensive API documentation including endpoints, authentication, examples, and operational considerations."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in API documentation and developer experience.
+
+      Generate comprehensive API documentation for [API_SERVICE] including:
+
+      - API Overview: Purpose, architecture, and integration patterns
+      - Authentication: Authentication methods, token management, and security requirements
+      - Endpoints Documentation: HTTP methods, parameters, request/response examples
+      - Error Handling: Error codes, error messages, and troubleshooting guidance
+      - Rate Limiting: Rate limits, quota management, and throttling policies
+      - Monitoring and Logging: API metrics, logging requirements, and observability
+      - Operational Information: SLA commitments, maintenance windows, and support procedures
+
+      Requirements:
+      - Include practical code examples in multiple languages
+      - Provide interactive examples and testing procedures
+      - Include performance characteristics and scaling information
+      - Add troubleshooting guides for common integration issues
+      - Include versioning strategy and backward compatibility information
+      - Provide operational metrics and monitoring guidance
+
+      Create documentation that enables effective API adoption and operational support.
+    notes:
+      - "Include both functional documentation and operational considerations."
+      - "Provide examples that developers can copy and modify for their use cases."
+      - "Keep documentation synchronized with API changes and versioning."
+    placeholders:
+      - name: API_SERVICE
+        description: "API service (e.g., inventory API, customer service API, payment processing API)"
+
+  - name: "Generate Security Configuration Guide"
+    id: devops-generate-security-guide
+    purpose: "Create detailed security configuration guides covering hardening, compliance, and security best practices."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in security configuration and compliance management.
+
+      Generate a comprehensive security configuration guide for [SECURITY_DOMAIN] including:
+
+      - Security Architecture: Security layers, defense-in-depth strategy, and component relationships
+      - Configuration Hardening: System hardening procedures, security settings, and baseline configurations
+      - Access Control: Authentication setup, authorization policies, and privilege management
+      - Network Security: Firewall rules, network segmentation, and traffic encryption
+      - Monitoring and Auditing: Security monitoring setup, log analysis, and compliance reporting
+      - Incident Response: Security incident procedures, forensics, and recovery processes
+      - Compliance Requirements: Regulatory compliance, audit procedures, and documentation requirements
+
+      Requirements:
+      - Include specific configuration examples and security settings
+      - Provide validation procedures and security testing guidance
+      - Include compliance mapping for relevant standards (PCI DSS, SOC 2, etc.)
+      - Add security monitoring and alerting configurations
+      - Include automated security scanning and validation procedures
+      - Provide security metrics and KPIs for ongoing management
+
+      Create a guide that ensures comprehensive security implementation and ongoing compliance.
+    notes:
+      - "Include both preventive and detective security controls."
+      - "Provide specific compliance requirements for retail and payment processing."
+      - "Include security automation and policy-as-code approaches."
+    placeholders:
+      - name: SECURITY_DOMAIN
+        description: "Security domain (e.g., Kubernetes security, cloud security, network security, application security)"
+
+  - name: "Generate Monitoring Setup Guide"
+    id: devops-generate-monitoring-guide
+    purpose: "Create comprehensive monitoring setup guides including tool configuration, dashboard creation, and alerting strategies."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in observability and monitoring system implementation.
+
+      Generate a comprehensive monitoring setup guide for [MONITORING_SCOPE] including:
+
+      - Monitoring Architecture: Monitoring stack components, data flow, and integration patterns
+      - Tool Configuration: Installation procedures, configuration files, and setup validation
+      - Dashboard Creation: Dashboard design principles, visualization guidelines, and template creation
+      - Alert Configuration: Alert rule design, notification setup, and escalation procedures
+      - Data Collection: Metric definition, collection strategies, and data quality assurance
+      - Performance Optimization: Query optimization, data retention, and resource management
+      - Operational Procedures: Maintenance tasks, troubleshooting, and system health monitoring
+
+      Requirements:
+      - Include specific configuration examples and setup procedures
+      - Provide dashboard templates and visualization best practices
+      - Include alert rule examples with appropriate thresholds
+      - Add data retention and performance optimization guidance
+      - Include integration with external systems and tools
+      - Provide monitoring system backup and disaster recovery procedures
+
+      Create a guide that enables comprehensive monitoring implementation and effective observability.
+    notes:
+      - "Include both infrastructure and application monitoring considerations."
+      - "Provide specific examples of effective dashboards and alert configurations."
+      - "Consider monitoring system scalability and performance requirements."
+    placeholders:
+      - name: MONITORING_SCOPE
+        description: "Monitoring scope (e.g., Kubernetes monitoring, application observability, infrastructure monitoring)"
+
+  - name: "Generate Disaster Recovery Documentation"
+    id: devops-generate-dr-documentation
+    purpose: "Create comprehensive disaster recovery documentation including procedures, testing plans, and recovery validation."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in disaster recovery planning and business continuity.
+
+      Generate comprehensive disaster recovery documentation for [SYSTEM_CRITICAL] including:
+
+      - Recovery Objectives: RTO/RPO definitions, business impact analysis, and priority classification
+      - Recovery Procedures: Step-by-step recovery processes, dependency management, and validation steps
+      - Testing Framework: DR testing schedules, test scenarios, and success criteria
+      - Communication Plans: Notification procedures, status updates, and stakeholder management
+      - Resource Requirements: Infrastructure needs, personnel requirements, and vendor contacts
+      - Validation Procedures: System validation, data integrity checks, and performance verification
+      - Lessons Learned: Historical incident analysis, improvement recommendations, and plan updates
+
+      Requirements:
+      - Include specific recovery procedures with detailed commands and steps
+      - Provide testing procedures that can be executed without business impact
+      - Include communication templates for different stakeholder groups
+      - Add resource allocation and cost considerations
+      - Include compliance and regulatory requirements
+      - Provide metrics and KPIs for disaster recovery capabilities
+
+      Create documentation that ensures effective disaster recovery with comprehensive testing and validation.
+    notes:
+      - "Include both technical procedures and business continuity considerations."
+      - "Provide regular testing schedules and validation procedures."
+      - "Consider dependencies between systems and recovery sequencing."
+    placeholders:
+      - name: SYSTEM_CRITICAL
+        description: "Critical system (e.g., e-commerce platform, payment processing, customer database, inventory system)"
+
+  - name: "Generate Configuration Management Guide"
+    id: devops-generate-config-management-guide
+    purpose: "Create detailed configuration management guides covering version control, change tracking, and environment management."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in configuration management and infrastructure automation.
+
+      Generate a comprehensive configuration management guide for [CONFIGURATION_SCOPE] including:
+
+      - Configuration Strategy: Configuration management principles, version control, and change tracking
+      - Tool Implementation: Configuration management tool setup, workflow design, and integration patterns
+      - Environment Management: Environment definitions, promotion workflows, and consistency validation
+      - Change Control: Change approval processes, testing procedures, and rollback strategies
+      - Compliance Management: Configuration compliance, audit trails, and policy enforcement
+      - Automation Integration: CI/CD integration, automated testing, and deployment automation
+      - Operational Procedures: Configuration monitoring, drift detection, and remediation processes
+
+      Requirements:
+      - Include specific tool configurations and workflow examples
+      - Provide configuration templates and standardization guidelines
+      - Include testing and validation procedures for configuration changes
+      - Add compliance monitoring and reporting procedures
+      - Include integration with existing development and operations workflows
+      - Provide configuration backup and recovery procedures
+
+      Create a guide that ensures consistent configuration management with effective change control.
+    notes:
+      - "Include both infrastructure and application configuration management."
+      - "Provide specific examples of effective configuration organization and versioning."
+      - "Consider configuration security and secret management requirements."
+    placeholders:
+      - name: CONFIGURATION_SCOPE
+        description: "Configuration scope (e.g., Kubernetes configurations, infrastructure as code, application configurations)"
+
+  - name: "Generate Performance Optimization Guide"
+    id: devops-generate-performance-guide
+    purpose: "Create comprehensive performance optimization guides including analysis procedures, tuning strategies, and monitoring approaches."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in performance optimization and capacity management.
+
+      Generate a comprehensive performance optimization guide for [PERFORMANCE_TARGET] including:
+
+      - Performance Baseline: Baseline establishment, metric definition, and measurement procedures
+      - Analysis Methodology: Performance analysis techniques, bottleneck identification, and profiling procedures
+      - Optimization Strategies: Tuning approaches, configuration optimization, and architectural improvements
+      - Testing Procedures: Load testing, stress testing, and performance validation
+      - Monitoring Implementation: Performance monitoring setup, alerting strategies, and trend analysis
+      - Capacity Planning: Growth projections, resource planning, and scaling strategies
+      - Continuous Improvement: Performance culture, optimization cycles, and feedback loops
+
+      Requirements:
+      - Include specific analysis tools and profiling techniques
+      - Provide optimization examples with before/after comparisons
+      - Include load testing procedures and realistic scenarios
+      - Add performance monitoring and alerting configurations
+      - Include cost-performance trade-off analysis
+      - Provide performance regression detection and prevention strategies
+
+      Create a guide that enables systematic performance optimization with measurable improvements.
+    notes:
+      - "Include both application and infrastructure performance optimization techniques."
+      - "Provide specific examples of successful performance optimization initiatives."
+      - "Consider business impact and cost considerations in optimization recommendations."
+    placeholders:
+      - name: PERFORMANCE_TARGET
+        description: "Performance target (e.g., web application performance, database optimization, API response times)"
+
+  - name: "Generate Advanced Architecture Design Document"
+    id: devops-advanced-architecture-docs
+    purpose: "Create comprehensive architecture design documents for complex enterprise systems with detailed technical specifications."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in enterprise architecture design and technical documentation.
+
+      Generate a comprehensive architecture design document for [ARCHITECTURE_SYSTEM] including:
+
+      - Executive Summary: Business context, technical objectives, and strategic alignment
+      - System Architecture: Detailed component architecture, service interactions, and data flows
+      - Technical Specifications: Technology stack decisions, integration patterns, and protocol specifications
+      - Security Architecture: Security layers, threat modeling, and compliance requirements
+      - Scalability Design: Performance characteristics, scaling strategies, and capacity planning
+      - Operational Architecture: Deployment strategies, monitoring approach, and maintenance procedures
+      - Risk Analysis: Technical risks, mitigation strategies, and contingency planning
+
+      Requirements:
+      - Include detailed architectural diagrams with component relationships
+      - Provide technology decision rationale with alternative analysis
+      - Include non-functional requirements and quality attributes
+      - Add implementation phases with dependencies and milestones
+      - Include cost analysis and resource requirements
+      - Provide success metrics and acceptance criteria
+
+      Create documentation that serves as a comprehensive technical blueprint for complex system implementation.
+    notes:
+      - "Include both technical architecture and operational considerations."
+      - "Provide specific technology choices with detailed justification."
+      - "Consider enterprise constraints and integration requirements."
+    placeholders:
+      - name: ARCHITECTURE_SYSTEM
+        description: "Architecture system (e.g., microservices platform, data analytics platform, multi-cloud infrastructure)"
+
+  - name: "Generate Advanced Compliance Documentation"
+    id: devops-advanced-compliance-docs
+    purpose: "Create detailed compliance documentation framework covering regulatory requirements, audit procedures, and evidence management."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in compliance automation and regulatory documentation.
+
+      Generate comprehensive compliance documentation for [COMPLIANCE_FRAMEWORK] including:
+
+      - Compliance Overview: Regulatory requirements, scope definition, and compliance objectives
+      - Control Implementation: Technical controls, policy implementation, and automated compliance
+      - Evidence Management: Evidence collection, documentation procedures, and audit trail maintenance
+      - Assessment Procedures: Compliance testing, validation procedures, and gap analysis
+      - Reporting Framework: Compliance reporting, dashboard creation, and stakeholder communication
+      - Incident Management: Compliance incident procedures, reporting requirements, and remediation
+      - Continuous Improvement: Compliance maturity assessment, improvement planning, and program evolution
+
+      Requirements:
+      - Include specific control implementations with technical examples
+      - Provide audit procedures and evidence collection templates
+      - Include automated compliance monitoring and reporting
+      - Add compliance testing and validation procedures
+      - Include integration with existing security and operational tools
+      - Provide compliance metrics and KPIs for ongoing management
+
+      Create documentation that ensures comprehensive compliance with automated evidence collection and reporting.
+    notes:
+      - "Include both technical controls and organizational process requirements."
+      - "Provide specific automation examples for compliance monitoring and reporting."
+      - "Consider compliance as an ongoing operational practice with continuous improvement."
+    placeholders:
+      - name: COMPLIANCE_FRAMEWORK
+        description: "Compliance framework (e.g., PCI DSS Level 1, SOC 2 Type II, ISO 27001, GDPR, HIPAA)"
+
+  - name: "Generate Advanced GitOps Documentation"
+    id: devops-advanced-gitops-docs
+    purpose: "Create comprehensive GitOps documentation covering workflow design, tool integration, and organizational adoption strategies."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in GitOps implementation and organizational transformation.
+
+      Generate comprehensive GitOps documentation for [GITOPS_IMPLEMENTATION] including:
+
+      - GitOps Strategy: Workflow design, repository organization, and branching strategies
+      - Tool Implementation: GitOps operator configuration, integration patterns, and automation workflows
+      - Security Framework: RBAC implementation, policy enforcement, and secret management
+      - Environment Management: Multi-environment workflows, promotion strategies, and configuration management
+      - Monitoring Integration: Deployment monitoring, drift detection, and observability
+      - Incident Response: GitOps incident procedures, rollback strategies, and emergency protocols
+      - Organizational Adoption: Change management, training programs, and success measurement
+
+      Requirements:
+      - Include specific tool configurations and workflow examples
+      - Provide repository organization templates and branching strategies
+      - Include security implementation with policy-as-code examples
+      - Add monitoring and observability configurations
+      - Include organizational change management procedures
+      - Provide GitOps maturity assessment and improvement frameworks
+
+      Create documentation that enables successful GitOps adoption with comprehensive operational guidance.
+    notes:
+      - "Include both technical implementation and organizational transformation aspects."
+      - "Provide specific examples of successful GitOps patterns and workflows."
+      - "Consider enterprise constraints and integration with existing tools and processes."
+    placeholders:
+      - name: GITOPS_IMPLEMENTATION
+        description: "GitOps implementation (e.g., enterprise multi-cluster, multi-cloud, regulated environment)"
+
+  - name: "Generate Advanced Service Mesh Documentation"
+    id: devops-advanced-service-mesh-docs
+    purpose: "Create detailed service mesh documentation covering architecture, configuration, security, and operational procedures."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in service mesh architecture and microservices communication.
+
+      Generate comprehensive service mesh documentation for [SERVICE_MESH_PLATFORM] including:
+
+      - Service Mesh Architecture: Control plane and data plane architecture, component relationships
+      - Configuration Management: Service mesh configuration, policy management, and version control
+      - Security Implementation: mTLS configuration, authentication policies, and authorization strategies
+      - Traffic Management: Routing strategies, load balancing, and traffic policies
+      - Observability Integration: Distributed tracing, metrics collection, and monitoring setup
+      - Performance Optimization: Service mesh performance tuning, resource optimization, and scaling
+      - Operational Procedures: Deployment strategies, troubleshooting guides, and maintenance procedures
+
+      Requirements:
+      - Include detailed configuration examples and implementation patterns
+      - Provide security policy templates and best practices
+      - Include observability configuration and dashboard templates
+      - Add performance tuning guidelines and optimization strategies
+      - Include troubleshooting procedures and common issue resolution
+      - Provide migration strategies and adoption roadmaps
+
+      Create documentation that enables effective service mesh implementation with comprehensive operational support.
+    notes:
+      - "Include both service mesh configuration and application integration considerations."
+      - "Provide specific examples of effective service mesh policies and configurations."
+      - "Consider service mesh complexity and operational overhead in recommendations."
+    placeholders:
+      - name: SERVICE_MESH_PLATFORM
+        description: "Service mesh platform (e.g., Istio on Kubernetes, Linkerd service mesh, Consul Connect)"
+
+  - name: "Generate Advanced Multi-Cloud Documentation"
+    id: devops-advanced-multicloud-docs
+    purpose: "Create comprehensive multi-cloud documentation covering strategy, implementation, and operational considerations."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in multi-cloud strategy and implementation.
+
+      Generate comprehensive multi-cloud documentation for [MULTICLOUD_STRATEGY] including:
+
+      - Multi-Cloud Strategy: Cloud provider selection, workload distribution, and integration strategies
+      - Architecture Design: Cloud-agnostic patterns, abstraction layers, and service mapping
+      - Data Management: Cross-cloud data strategies, synchronization, and consistency management
+      - Network Architecture: Inter-cloud connectivity, traffic management, and security considerations
+      - Operational Framework: Management tools, monitoring strategies, and unified operations
+      - Cost Management: Cross-cloud cost optimization, resource allocation, and billing management
+      - Risk Management: Vendor risk mitigation, disaster recovery, and business continuity
+
+      Requirements:
+      - Include specific implementation examples and architectural patterns
+      - Provide cloud provider comparison and selection criteria
+      - Include cost analysis and optimization strategies
+      - Add operational procedures for multi-cloud management
+      - Include disaster recovery and business continuity procedures
+      - Provide multi-cloud maturity assessment and improvement frameworks
+
+      Create documentation that enables effective multi-cloud implementation with comprehensive operational guidance.
+    notes:
+      - "Include both technical implementation and business strategy considerations."
+      - "Provide specific examples of successful multi-cloud patterns and anti-patterns."
+      - "Consider organizational readiness and skills requirements for multi-cloud operations."
+    placeholders:
+      - name: MULTICLOUD_STRATEGY
+        description: "Multi-cloud strategy (e.g., AWS-Azure hybrid, multi-cloud Kubernetes, disaster recovery setup)"
+
+  - name: "Generate Advanced Security Operations Manual"
+    id: devops-advanced-security-ops-manual
+    purpose: "Create comprehensive security operations documentation covering threat detection, incident response, and continuous security monitoring."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in security operations and incident response.
+
+      Generate a comprehensive security operations manual for [SECURITY_ENVIRONMENT] including:
+
+      - Security Architecture: Security layers, threat modeling, and defense-in-depth implementation
+      - Threat Detection: Security monitoring setup, threat intelligence integration, and anomaly detection
+      - Incident Response: Security incident procedures, forensics, and recovery processes
+      - Vulnerability Management: Vulnerability scanning, assessment, and remediation workflows
+      - Compliance Monitoring: Automated compliance checking, audit procedures, and reporting
+      - Security Automation: SOAR implementation, automated response, and security orchestration
+      - Continuous Improvement: Security metrics, maturity assessment, and program enhancement
+
+      Requirements:
+      - Include specific security tool configurations and integration patterns
+      - Provide incident response playbooks with detailed procedures
+      - Include vulnerability management workflows and automation
+      - Add compliance monitoring and reporting procedures
+      - Include security automation and orchestration examples
+      - Provide security metrics and KPIs for program management
+
+      Create documentation that enables effective security operations with automated threat detection and response.
+    notes:
+      - "Include both preventive and detective security controls with automated response capabilities."
+      - "Provide specific examples of security automation and orchestration workflows."
+      - "Consider regulatory requirements and compliance obligations in security operations."
+    placeholders:
+      - name: SECURITY_ENVIRONMENT
+        description: "Security environment (e.g., cloud-native security, hybrid infrastructure, regulated environment)"
+
+  - name: "Generate Advanced Performance Engineering Guide"
+    id: devops-advanced-performance-engineering
+    purpose: "Create comprehensive performance engineering documentation covering analysis, optimization, and scalability strategies."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in performance engineering and scalability optimization.
+
+      Generate a comprehensive performance engineering guide for [PERFORMANCE_SYSTEM] including:
+
+      - Performance Architecture: Performance-oriented design patterns, scalability strategies, and bottleneck prevention
+      - Analysis Methodology: Performance profiling, load testing, and capacity analysis techniques
+      - Optimization Framework: Multi-layer optimization strategies, performance tuning, and efficiency improvements
+      - Monitoring Strategy: Performance monitoring, alerting, and observability implementation
+      - Scalability Planning: Auto-scaling strategies, capacity planning, and growth management
+      - Testing Framework: Performance testing, chaos engineering, and resilience validation
+      - Continuous Optimization: Performance culture, optimization cycles, and improvement measurement
+
+      Requirements:
+      - Include detailed performance analysis techniques and tools
+      - Provide optimization strategies with specific implementation examples
+      - Include scalability patterns and auto-scaling configurations
+      - Add performance testing frameworks and realistic scenarios
+      - Include performance monitoring and alerting strategies
+      - Provide performance regression detection and prevention procedures
+
+      Create documentation that enables systematic performance engineering with measurable scalability improvements.
+    notes:
+      - "Include both application and infrastructure performance engineering considerations."
+      - "Provide specific examples of successful performance optimization and scalability implementations."
+      - "Consider cost-performance trade-offs and business impact in optimization strategies."
+    placeholders:
+      - name: PERFORMANCE_SYSTEM
+        description: "Performance system (e.g., high-traffic e-commerce platform, real-time data processing, microservices architecture)"
+
+  - name: "Generate Advanced Infrastructure Automation Guide"
+    id: devops-advanced-infrastructure-automation
+    purpose: "Create comprehensive infrastructure automation documentation covering IaC, configuration management, and operational automation."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in infrastructure automation and configuration management.
+
+      Generate comprehensive infrastructure automation documentation for [AUTOMATION_SCOPE] including:
+
+      - Automation Strategy: Infrastructure automation principles, tool selection, and workflow design
+      - Infrastructure as Code: IaC implementation, module design, and version management
+      - Configuration Management: Configuration automation, drift detection, and remediation strategies
+      - Deployment Automation: Automated deployment pipelines, testing, and validation procedures
+      - Operational Automation: Automated operations, self-healing systems, and intelligent automation
+      - Compliance Automation: Policy-as-code, automated compliance, and audit automation
+      - Continuous Improvement: Automation maturity, optimization opportunities, and enhancement strategies
+
+      Requirements:
+      - Include specific automation tool configurations and implementation patterns
+      - Provide IaC templates and module design examples
+      - Include automated testing and validation procedures
+      - Add operational automation and self-healing examples
+      - Include compliance automation and policy-as-code implementations
+      - Provide automation maturity assessment and improvement frameworks
+
+      Create documentation that enables comprehensive infrastructure automation with intelligent operational capabilities.
+    notes:
+      - "Include both infrastructure provisioning and operational automation considerations."
+      - "Provide specific examples of successful automation implementations and patterns."
+      - "Consider automation complexity and maintenance requirements in implementation strategies."
+    placeholders:
+      - name: AUTOMATION_SCOPE
+        description: "Automation scope (e.g., cloud infrastructure automation, Kubernetes platform automation, hybrid environment automation)"
+
+  - name: "Generate Advanced Observability Implementation Guide"
+    id: devops-advanced-observability-implementation
+    purpose: "Create comprehensive observability documentation covering distributed tracing, advanced monitoring, and intelligent alerting."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in advanced observability and intelligent monitoring systems.
+
+      Generate comprehensive observability implementation guide for [OBSERVABILITY_PLATFORM] including:
+
+      - Observability Architecture: Three pillars of observability, correlation strategies, and data pipeline design
+      - Advanced Monitoring: Custom metrics, business KPIs, and intelligent alerting strategies
+      - Distributed Tracing: End-to-end tracing, service dependency mapping, and performance analysis
+      - Log Management: Structured logging, log aggregation, and intelligent log analysis
+      - AI-Powered Insights: Anomaly detection, predictive analytics, and automated root cause analysis
+      - Performance Analytics: Application performance monitoring, user experience tracking, and business impact analysis
+      - Operational Intelligence: Observability-driven operations, intelligent automation, and continuous optimization
+
+      Requirements:
+      - Include advanced observability tool configurations and integration patterns
+      - Provide custom metric and dashboard implementation examples
+      - Include distributed tracing setup and analysis procedures
+      - Add AI-powered monitoring and alerting configurations
+      - Include observability automation and intelligent response procedures
+      - Provide observability maturity assessment and improvement frameworks
+
+      Create documentation that enables advanced observability with AI-powered insights and automated operational intelligence.
+    notes:
+      - "Include both technical observability and business intelligence considerations."
+      - "Provide specific examples of advanced observability implementations and AI integration."
+      - "Consider observability data volume and cost optimization in implementation strategies."
+    placeholders:
+      - name: OBSERVABILITY_PLATFORM
+        description: "Observability platform (e.g., cloud-native observability, enterprise monitoring, microservices observability)" 

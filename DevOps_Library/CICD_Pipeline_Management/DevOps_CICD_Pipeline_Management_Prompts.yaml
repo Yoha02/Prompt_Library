@@ -1,0 +1,561 @@
+# DevOps CI/CD Pipeline Management Prompts
+
+prompts:
+  - name: "Generate GitHub Actions CI/CD Pipeline"
+    id: devops-github-actions-pipeline
+    purpose: "Create a comprehensive GitHub Actions CI/CD pipeline with build, test, security scanning, and deployment stages for modern applications."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in GitHub Actions and modern CI/CD practices.
+
+      Generate a complete GitHub Actions workflow for [APPLICATION_TYPE] including:
+
+      - Trigger Configuration: Configure triggers for push, pull requests, and scheduled runs
+      - Build Stage: Set up build environment with [BUILD_TOOL] and dependency caching
+      - Testing Pipeline: Run unit tests, integration tests, and code coverage analysis
+      - Security Scanning: Implement vulnerability scanning, secret detection, and SAST analysis
+      - Quality Gates: Configure quality gates with minimum test coverage and security thresholds
+      - Artifact Management: Build and publish artifacts to [ARTIFACT_REGISTRY]
+      - Deployment Pipeline: Deploy to [TARGET_ENVIRONMENT] with approval gates
+      - Monitoring Integration: Set up deployment monitoring and rollback capabilities
+
+      Requirements:
+      - Use matrix builds for multi-platform testing and deployment
+      - Implement proper secret management with GitHub Secrets
+      - Configure parallel job execution for optimal pipeline performance
+      - Include deployment notifications and status reporting
+      - Set up automatic rollback on deployment failure
+      - Implement proper branch protection and review requirements
+      - Configure environment-specific deployment strategies
+
+      Provide the complete workflow configuration with reusable actions and deployment scripts.
+    notes:
+      - "Use GitHub's built-in security features and marketplace actions where appropriate."
+      - "Implement proper caching strategies to reduce build times and costs."
+      - "Consider using self-hosted runners for sensitive or resource-intensive workloads."
+    placeholders:
+      - name: APPLICATION_TYPE
+        description: "Application type (e.g., Node.js web app, Python API, Java microservice, .NET application)"
+      - name: BUILD_TOOL
+        description: "Build tool (e.g., npm, Maven, Gradle, dotnet, pip)"
+      - name: ARTIFACT_REGISTRY
+        description: "Artifact registry (e.g., Docker Hub, GitHub Container Registry, AWS ECR, Azure ACR)"
+      - name: TARGET_ENVIRONMENT
+        description: "Target deployment environment (e.g., AWS EKS, Azure AKS, Google Cloud Run, Heroku)"
+
+  - name: "Generate GitLab CI/CD Pipeline Configuration"
+    id: devops-gitlab-cicd-pipeline
+    purpose: "Create a sophisticated GitLab CI/CD pipeline with stages for build, test, security, and deployment with advanced features."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in GitLab CI/CD and enterprise deployment practices.
+
+      Generate a comprehensive GitLab CI/CD pipeline for [PROJECT_TYPE] including:
+
+      - Pipeline Stages: Configure logical stages with dependencies and conditions
+      - Build Jobs: Set up build jobs with [LANGUAGE_RUNTIME] and artifact generation
+      - Test Execution: Implement comprehensive testing including unit, integration, and E2E tests
+      - Security Pipeline: Integrate SAST, DAST, dependency scanning, and container scanning
+      - Code Quality: Configure code quality analysis with SonarQube integration
+      - Review Apps: Set up dynamic environments for merge request reviews
+      - Deployment Jobs: Configure multi-environment deployments with manual gates
+      - Monitoring: Integrate with monitoring and observability platforms
+
+      Requirements:
+      - Use GitLab CI/CD variables and environments for configuration management
+      - Implement proper job parallelization and pipeline optimization
+      - Configure proper artifact and cache management
+      - Set up integration with GitLab Container Registry
+      - Include deployment strategies like blue-green and canary deployments
+      - Configure proper access controls and approval workflows
+      - Implement automated rollback and disaster recovery procedures
+
+      Provide the complete .gitlab-ci.yml configuration with job templates and deployment scripts.
+    notes:
+      - "Leverage GitLab's Auto DevOps features for rapid pipeline setup."
+      - "Use GitLab's built-in security scanning and compliance features."
+      - "Implement proper cost optimization with efficient resource usage."
+    placeholders:
+      - name: PROJECT_TYPE
+        description: "Project type (e.g., microservices platform, monolithic web application, mobile backend, data processing pipeline)"
+      - name: LANGUAGE_RUNTIME
+        description: "Language and runtime (e.g., Node.js 18, Python 3.11, Java 17, Go 1.21)"
+
+  - name: "Generate Azure DevOps Pipeline"
+    id: devops-azure-devops-pipeline
+    purpose: "Create an enterprise-grade Azure DevOps pipeline with multi-stage deployments, security integration, and comprehensive testing."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in Azure DevOps and Microsoft technology stack.
+
+      Generate a complete Azure DevOps pipeline for [APPLICATION_FRAMEWORK] including:
+
+      - Build Pipeline: Configure build pipeline with [BUILD_PLATFORM] and NuGet/npm package management
+      - Test Automation: Implement comprehensive testing with Azure Test Plans integration
+      - Security Integration: Configure security scanning with Microsoft Security DevOps toolkit
+      - Quality Assurance: Set up SonarCloud integration and code coverage reporting
+      - Artifact Pipeline: Manage artifacts with Azure Artifacts and universal packages
+      - Release Pipeline: Configure multi-stage release with approval gates and environments
+      - Infrastructure Deployment: Integrate with Azure Resource Manager and Bicep templates
+      - Monitoring Setup: Configure Application Insights and Azure Monitor integration
+
+      Requirements:
+      - Use Azure DevOps variable groups and library for configuration management
+      - Implement proper service connections and secure authentication
+      - Configure parallel job execution and pipeline optimization
+      - Set up integration with Azure Active Directory for access control
+      - Include deployment slots and traffic management for zero-downtime deployments
+      - Configure proper backup and disaster recovery for pipeline infrastructure
+      - Implement compliance and audit trail capabilities
+
+      Provide the complete pipeline YAML configuration with task templates and extension integration.
+    notes:
+      - "Leverage Azure DevOps marketplace extensions for specialized functionality."
+      - "Use Azure Key Vault for secure secret management across pipelines."
+      - "Implement proper cost management with Azure DevOps billing and usage monitoring."
+    placeholders:
+      - name: APPLICATION_FRAMEWORK
+        description: "Application framework (e.g., .NET Core Web API, Angular SPA, React Native app, Azure Functions)"
+      - name: BUILD_PLATFORM
+        description: "Build platform (e.g., .NET 6, Node.js, Python, Java)"
+
+  - name: "Generate Jenkins Declarative Pipeline"
+    id: devops-jenkins-declarative-pipeline
+    purpose: "Create a robust Jenkins declarative pipeline with advanced features including parallel execution, security scanning, and deployment automation."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in Jenkins automation and enterprise CI/CD practices.
+
+      Generate a Jenkins declarative pipeline for [TECHNOLOGY_STACK] including:
+
+      - Pipeline Structure: Define pipeline with proper stages, steps, and error handling
+      - Build Configuration: Set up build environment with [BUILD_TOOLS] and workspace management
+      - Testing Framework: Implement comprehensive testing with parallel test execution
+      - Security Scanning: Integrate security tools for static analysis and vulnerability scanning
+      - Quality Gates: Configure quality gates with Jenkins Quality Gate plugin
+      - Artifact Management: Set up artifact archiving and distribution to [REPOSITORY_TYPE]
+      - Deployment Automation: Configure deployment to multiple environments with approval processes
+      - Notification System: Set up comprehensive notification and reporting system
+
+      Requirements:
+      - Use Jenkins shared libraries for reusable pipeline components
+      - Implement proper credential management with Jenkins Credential Store
+      - Configure agent pools and distributed build execution
+      - Set up integration with external tools and services
+      - Include pipeline visualization and monitoring capabilities
+      - Configure proper backup and disaster recovery for Jenkins infrastructure
+      - Implement pipeline as code with version control integration
+
+      Provide the complete Jenkinsfile with shared library functions and configuration examples.
+    notes:
+      - "Use Jenkins Configuration as Code (JCasC) for infrastructure automation."
+      - "Implement proper security hardening for Jenkins master and agents."
+      - "Consider using Jenkins X for cloud-native CI/CD workflows."
+    placeholders:
+      - name: TECHNOLOGY_STACK
+        description: "Technology stack (e.g., Java Spring Boot, Python Django, Node.js Express, PHP Laravel)"
+      - name: BUILD_TOOLS
+        description: "Build tools (e.g., Maven + Docker, Gradle + Kubernetes, npm + Webpack, pip + Buildah)"
+      - name: REPOSITORY_TYPE
+        description: "Repository type (e.g., Nexus Repository, JFrog Artifactory, AWS CodeArtifact, Azure Artifacts)"
+
+  - name: "Generate CircleCI Pipeline Configuration"
+    id: devops-circleci-pipeline
+    purpose: "Create an optimized CircleCI pipeline with advanced caching, parallelization, and deployment strategies for fast and reliable builds."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in CircleCI and modern cloud-native development practices.
+
+      Generate a comprehensive CircleCI configuration for [PROJECT_ARCHITECTURE] including:
+
+      - Workflow Design: Configure complex workflows with job dependencies and conditions
+      - Executor Configuration: Set up appropriate executors for [RUNTIME_ENVIRONMENT] with resource optimization
+      - Build Optimization: Implement advanced caching strategies and parallel job execution
+      - Testing Pipeline: Configure comprehensive testing with test splitting and parallelization
+      - Security Integration: Set up security scanning and compliance checks
+      - Deployment Workflows: Configure multi-environment deployments with orb integration
+      - Performance Monitoring: Integrate performance testing and monitoring into the pipeline
+      - Cost Optimization: Implement cost-effective resource usage and execution strategies
+
+      Requirements:
+      - Use CircleCI orbs for common functionality and integrations
+      - Implement proper secret management with CircleCI contexts
+      - Configure dynamic resource allocation based on workload requirements
+      - Set up integration with external services and APIs
+      - Include comprehensive error handling and retry mechanisms
+      - Configure proper artifact storage and retention policies
+      - Implement pipeline optimization for reduced build times and costs
+
+      Provide the complete .circleci/config.yml with custom orbs and deployment strategies.
+    notes:
+      - "Leverage CircleCI's machine learning insights for pipeline optimization."
+      - "Use CircleCI's parallelism features effectively to reduce overall build time."
+      - "Implement proper monitoring and alerting for pipeline health and performance."
+    placeholders:
+      - name: PROJECT_ARCHITECTURE
+        description: "Project architecture (e.g., microservices with Docker, monorepo with multiple services, serverless functions, mobile application)"
+      - name: RUNTIME_ENVIRONMENT
+        description: "Runtime environment (e.g., Docker images, macOS for iOS, Windows for .NET, Linux for containers)"
+
+  - name: "Generate AWS CodePipeline Configuration"
+    id: devops-aws-codepipeline
+    purpose: "Create a comprehensive AWS CodePipeline with CodeBuild, CodeDeploy integration, and advanced deployment strategies."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in AWS native CI/CD services and cloud-native development.
+
+      Generate a complete AWS CodePipeline configuration for [AWS_SERVICE_TARGET] including:
+
+      - Source Stage: Configure source integration with [SOURCE_PROVIDER] and trigger mechanisms
+      - Build Stage: Set up AWS CodeBuild with [BUILD_ENVIRONMENT] and artifact generation
+      - Test Stage: Implement comprehensive testing with parallel execution and reporting
+      - Security Stage: Integrate AWS security services for vulnerability scanning and compliance
+      - Deploy Stage: Configure AWS CodeDeploy with [DEPLOYMENT_STRATEGY] and health monitoring
+      - Infrastructure Stage: Integrate with AWS CloudFormation for infrastructure management
+      - Monitoring Stage: Set up AWS CloudWatch integration for pipeline and application monitoring
+      - Approval Gates: Configure manual approval stages for production deployments
+
+      Requirements:
+      - Use AWS CloudFormation or CDK for pipeline infrastructure as code
+      - Implement proper IAM roles and security policies for pipeline execution
+      - Configure cross-account deployments with proper permission management
+      - Set up integration with AWS Systems Manager for parameter management
+      - Include AWS X-Ray integration for distributed tracing
+      - Configure automated rollback with AWS CodeDeploy
+      - Implement cost optimization with spot instances and reserved capacity
+
+      Provide the complete pipeline configuration with CloudFormation templates and buildspec files.
+    notes:
+      - "Use AWS CodeStar for rapid pipeline setup and project templates."
+      - "Leverage AWS Lambda for custom pipeline actions and integrations."
+      - "Implement proper tagging and cost allocation for pipeline resources."
+    placeholders:
+      - name: AWS_SERVICE_TARGET
+        description: "AWS service target (e.g., ECS with Fargate, Lambda functions, EC2 with Auto Scaling, EKS cluster)"
+      - name: SOURCE_PROVIDER
+        description: "Source provider (e.g., GitHub, AWS CodeCommit, Bitbucket, S3)"
+      - name: BUILD_ENVIRONMENT
+        description: "Build environment (e.g., Amazon Linux 2, Ubuntu 20.04, Windows Server 2019, custom Docker image)"
+      - name: DEPLOYMENT_STRATEGY
+        description: "Deployment strategy (e.g., Blue/Green, Rolling, All-at-once, Canary)"
+
+  - name: "Generate Tekton Pipeline for Kubernetes"
+    id: devops-tekton-pipeline
+    purpose: "Create cloud-native CI/CD pipelines using Tekton with Kubernetes-native resources and advanced pipeline features."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in cloud-native CI/CD with Tekton and Kubernetes.
+
+      Generate a comprehensive Tekton pipeline for [KUBERNETES_WORKLOAD] including:
+
+      - Pipeline Definition: Define Tekton pipeline with tasks, parameters, and workspaces
+      - Task Library: Create reusable tasks for [BUILD_PROCESS] and testing workflows
+      - Trigger Configuration: Set up Tekton triggers for webhook-based pipeline execution
+      - Security Context: Configure proper security contexts and RBAC for pipeline execution
+      - Resource Management: Set up resource limits, requests, and node affinity for pipeline runs
+      - Artifact Storage: Configure persistent volumes and artifact sharing between tasks
+      - Monitoring Integration: Set up monitoring and observability for pipeline execution
+      - GitOps Integration: Configure integration with GitOps workflows and ArgoCD
+
+      Requirements:
+      - Use Tekton Catalog tasks for common functionality and integrations
+      - Implement proper secret management with Kubernetes secrets and external secret operators
+      - Configure parallel task execution and pipeline optimization
+      - Set up integration with Kubernetes admission controllers and policy engines
+      - Include comprehensive logging and debugging capabilities
+      - Configure proper cleanup and resource management policies
+      - Implement pipeline visualization and management interfaces
+
+      Provide the complete Tekton pipeline configuration with custom tasks and deployment manifests.
+    notes:
+      - "Use Tekton Dashboard for pipeline visualization and management."
+      - "Leverage Tekton Chains for supply chain security and artifact provenance."
+      - "Implement proper resource quotas and limits to prevent resource exhaustion."
+    placeholders:
+      - name: KUBERNETES_WORKLOAD
+        description: "Kubernetes workload (e.g., microservices deployment, batch processing jobs, ML training pipelines, web applications)"
+      - name: BUILD_PROCESS
+        description: "Build process (e.g., container image building with Buildah, Maven artifact building, npm package creation)"
+
+  - name: "Generate Argo Workflows for Complex Pipelines"
+    id: devops-argo-workflows
+    purpose: "Create sophisticated workflow orchestration using Argo Workflows for complex CI/CD processes and data pipelines."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in workflow orchestration with Argo Workflows and Kubernetes.
+
+      Generate comprehensive Argo Workflows for [WORKFLOW_TYPE] including:
+
+      - Workflow Template: Define workflow templates with steps, DAG, and conditional logic
+      - Parameter Management: Configure input parameters, outputs, and artifact passing
+      - Step Templates: Create reusable step templates for common operations
+      - Conditional Execution: Implement conditional steps and parallel execution paths
+      - Error Handling: Configure retry policies, timeout handling, and failure recovery
+      - Resource Management: Set up resource allocation and scheduling constraints
+      - Monitoring Integration: Configure workflow monitoring and observability
+      - Integration Points: Set up integration with external systems and APIs
+
+      Requirements:
+      - Use Argo Workflows with proper RBAC and security configurations
+      - Implement workflow versioning and template management
+      - Configure workflow archives and garbage collection policies
+      - Set up integration with artifact repositories and storage systems
+      - Include comprehensive logging and debugging capabilities
+      - Configure workflow notifications and alerting
+      - Implement proper workflow scheduling and queuing mechanisms
+
+      Provide the complete Argo Workflows configuration with templates and deployment manifests.
+    notes:
+      - "Use Argo Events for event-driven workflow triggering and integration."
+      - "Leverage Argo Workflows UI for workflow visualization and management."
+      - "Implement proper workflow cost optimization and resource efficiency."
+    placeholders:
+      - name: WORKFLOW_TYPE
+        description: "Workflow type (e.g., machine learning pipeline, data processing workflow, complex deployment pipeline, batch job orchestration)"
+
+  - name: "Generate Pipeline Security Integration"
+    id: devops-pipeline-security
+    purpose: "Create comprehensive security integration for CI/CD pipelines with vulnerability scanning, compliance validation, and security gates."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in DevSecOps practices and pipeline security integration.
+
+      Generate security integration for [PIPELINE_PLATFORM] including:
+
+      - Static Analysis: Configure SAST tools for code security analysis and vulnerability detection
+      - Dependency Scanning: Set up SCA tools for dependency vulnerability scanning and license compliance
+      - Container Security: Implement container image scanning and security policy enforcement
+      - Dynamic Testing: Configure DAST tools for runtime security testing and penetration testing
+      - Compliance Validation: Implement compliance checks for [COMPLIANCE_REQUIREMENTS] standards
+      - Secret Management: Configure secure secret scanning and management throughout the pipeline
+      - Security Gates: Set up security quality gates with fail-fast mechanisms and exception handling
+      - Threat Modeling: Integrate threat modeling and risk assessment into the development process
+
+      Requirements:
+      - Integrate multiple security tools with unified reporting and dashboards
+      - Configure security policy as code with automated enforcement
+      - Set up integration with security information and event management (SIEM) systems
+      - Include security training and awareness automation
+      - Configure automated security remediation and patch management
+      - Implement security metrics and KPI tracking
+      - Set up integration with vulnerability management and ticketing systems
+
+      Provide the complete security integration configuration with tool configurations and policy definitions.
+    notes:
+      - "Implement security left-shift practices to catch vulnerabilities early in the development process."
+      - "Use security orchestration tools for automated response and remediation."
+      - "Consider implementing security chaos engineering for resilience testing."
+    placeholders:
+      - name: PIPELINE_PLATFORM
+        description: "Pipeline platform (e.g., GitHub Actions, GitLab CI/CD, Jenkins, Azure DevOps, AWS CodePipeline)"
+      - name: COMPLIANCE_REQUIREMENTS
+        description: "Compliance requirements (e.g., SOC 2, PCI DSS, HIPAA, GDPR, ISO 27001)"
+
+  - name: "Generate Multi-Environment Deployment Pipeline"
+    id: devops-multi-environment-pipeline
+    purpose: "Create sophisticated multi-environment deployment pipelines with promotion workflows, environment management, and deployment strategies."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in enterprise deployment strategies and environment management.
+
+      Generate multi-environment deployment pipeline for [APPLICATION_STACK] including:
+
+      - Environment Configuration: Define environment-specific configurations for [ENVIRONMENT_LIST]
+      - Promotion Workflow: Configure automated and manual promotion workflows between environments
+      - Deployment Strategies: Implement [DEPLOYMENT_PATTERN] deployment patterns for each environment
+      - Configuration Management: Set up environment-specific configuration and secret management
+      - Testing Integration: Configure environment-specific testing including smoke tests and health checks
+      - Approval Gates: Set up approval workflows with stakeholder notifications and governance
+      - Rollback Automation: Implement automated rollback mechanisms with data consistency checks
+      - Monitoring Integration: Configure environment-specific monitoring and alerting
+
+      Requirements:
+      - Use infrastructure as code for consistent environment provisioning
+      - Implement proper environment isolation and security boundaries
+      - Configure automated environment cleanup and cost optimization
+      - Set up integration with change management and ticketing systems
+      - Include comprehensive audit trails and compliance reporting
+      - Configure proper backup and disaster recovery for each environment
+      - Implement environment-specific performance and load testing
+
+      Provide the complete multi-environment pipeline configuration with deployment scripts and management tools.
+    notes:
+      - "Implement proper environment parity to reduce deployment-related issues."
+      - "Use feature flags and canary deployments for risk mitigation."
+      - "Consider using temporary environments for feature development and testing."
+    placeholders:
+      - name: APPLICATION_STACK
+        description: "Application stack (e.g., microservices on Kubernetes, serverless application, traditional web application, mobile backend)"
+      - name: ENVIRONMENT_LIST
+        description: "Environment list (e.g., dev, test, staging, production, or feature, integration, pre-prod, prod)"
+      - name: DEPLOYMENT_PATTERN
+        description: "Deployment pattern (e.g., blue-green, canary, rolling update, recreate)"
+
+  - name: "Generate Pipeline Performance Optimization"
+    id: devops-pipeline-performance
+    purpose: "Create optimized CI/CD pipeline configurations with advanced caching, parallelization, and performance monitoring."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in CI/CD pipeline optimization and performance engineering.
+
+      Generate performance optimization for [PIPELINE_TYPE] including:
+
+      - Build Optimization: Implement advanced build caching, incremental builds, and artifact reuse
+      - Parallel Execution: Configure optimal parallel job execution and resource allocation
+      - Resource Management: Set up intelligent resource allocation and auto-scaling for build agents
+      - Cache Strategy: Implement multi-layer caching for dependencies, build artifacts, and test results
+      - Pipeline Analytics: Set up comprehensive pipeline performance monitoring and metrics
+      - Bottleneck Analysis: Configure automated bottleneck detection and optimization recommendations
+      - Cost Optimization: Implement cost-aware resource usage and scheduling strategies
+      - Performance Testing: Integrate performance testing and benchmarking into the pipeline
+
+      Requirements:
+      - Use advanced caching strategies including distributed caching and cache warming
+      - Configure intelligent test execution with test impact analysis and selective testing
+      - Set up build artifact optimization with compression and deduplication
+      - Implement proper resource monitoring and capacity planning
+      - Configure automated performance regression detection and alerting
+      - Set up integration with performance profiling and analysis tools
+      - Include comprehensive performance reporting and trending analysis
+
+      Provide the complete optimization configuration with performance monitoring and analysis tools.
+    notes:
+      - "Implement continuous optimization based on pipeline performance data and trends."
+      - "Use machine learning for intelligent resource allocation and scheduling."
+      - "Consider using build acceleration technologies like remote execution and distributed builds."
+    placeholders:
+      - name: PIPELINE_TYPE
+        description: "Pipeline type (e.g., monorepo with multiple services, large-scale enterprise application, high-frequency deployment pipeline, resource-intensive build process)"
+
+  - name: "Generate Pipeline Monitoring and Observability"
+    id: devops-pipeline-observability
+    purpose: "Create comprehensive monitoring and observability for CI/CD pipelines with metrics, logging, alerting, and analytics."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in CI/CD pipeline observability and operational excellence.
+
+      Generate pipeline observability solution for [PIPELINE_INFRASTRUCTURE] including:
+
+      - Metrics Collection: Configure comprehensive metrics collection for pipeline performance and health
+      - Log Aggregation: Set up centralized logging with structured log processing and analysis
+      - Distributed Tracing: Implement end-to-end tracing for complex pipeline workflows
+      - Alerting System: Configure intelligent alerting with escalation procedures and notification channels
+      - Dashboard Creation: Build comprehensive dashboards for different stakeholder needs
+      - Analytics Platform: Set up pipeline analytics with trend analysis and predictive insights
+      - Incident Management: Configure automated incident detection and response workflows
+      - Performance Baselines: Establish performance baselines and SLA monitoring
+
+      Requirements:
+      - Use observability platforms with proper data retention and storage optimization
+      - Configure correlation between pipeline events, infrastructure metrics, and application performance
+      - Set up integration with business metrics and KPI tracking
+      - Implement proper data governance and privacy controls
+      - Configure automated anomaly detection and root cause analysis
+      - Set up integration with ticketing and incident management systems
+      - Include comprehensive reporting and compliance documentation
+
+      Provide the complete observability configuration with monitoring setup and dashboard definitions.
+    notes:
+      - "Use observability data to drive continuous improvement and optimization decisions."
+      - "Implement proper cost management for observability infrastructure and data storage."
+      - "Consider using AI-powered analytics for advanced pipeline insights and recommendations."
+    placeholders:
+      - name: PIPELINE_INFRASTRUCTURE
+        description: "Pipeline infrastructure (e.g., cloud-based CI/CD platform, on-premises Jenkins cluster, Kubernetes-native pipelines, hybrid CI/CD environment)"
+
+  - name: "Generate GitOps Pipeline Integration"
+    id: devops-gitops-pipeline
+    purpose: "Create GitOps-integrated CI/CD pipelines with declarative deployments, configuration management, and automated synchronization."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in GitOps practices and declarative infrastructure management.
+
+      Generate GitOps pipeline integration for [GITOPS_PLATFORM] including:
+
+      - Repository Structure: Design GitOps repository structure with application and infrastructure configurations
+      - CI Pipeline: Configure CI pipeline for application builds, testing, and image creation
+      - CD Automation: Set up automated deployment through GitOps controller synchronization
+      - Configuration Management: Implement declarative configuration management with version control
+      - Environment Promotion: Configure automated promotion workflows through Git operations
+      - Secret Management: Integrate external secret management with GitOps workflows
+      - Compliance Tracking: Set up audit trails and compliance validation for all changes
+      - Rollback Automation: Implement automated rollback through Git revert operations
+
+      Requirements:
+      - Use GitOps tools like ArgoCD, Flux, or Jenkins X for deployment automation
+      - Implement proper RBAC and security controls for GitOps operations
+      - Configure automated testing and validation before deployment synchronization
+      - Set up integration with policy engines for compliance and governance
+      - Include comprehensive monitoring and alerting for GitOps operations
+      - Configure proper backup and disaster recovery for GitOps infrastructure
+      - Implement automated drift detection and remediation
+
+      Provide the complete GitOps integration with repository structure and automation configuration.
+    notes:
+      - "Ensure proper separation between application code and deployment configuration repositories."
+      - "Use signed commits and verified workflows for enhanced security."
+      - "Implement proper GitOps maturity assessment and continuous improvement."
+    placeholders:
+      - name: GITOPS_PLATFORM
+        description: "GitOps platform (e.g., ArgoCD on Kubernetes, Flux with Helm, Jenkins X, Azure Arc with GitOps)"
+
+  - name: "Generate Pipeline Disaster Recovery"
+    id: devops-pipeline-disaster-recovery
+    purpose: "Create comprehensive disaster recovery strategies for CI/CD pipelines with backup, failover, and business continuity planning."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in CI/CD infrastructure resilience and business continuity planning.
+
+      Generate disaster recovery solution for [PIPELINE_SYSTEM] including:
+
+      - Backup Strategy: Configure automated backup of pipeline configurations, artifacts, and metadata
+      - Failover Automation: Set up automated failover to secondary pipeline infrastructure
+      - Data Replication: Implement real-time replication of critical pipeline data and configurations
+      - Recovery Procedures: Define automated recovery workflows with validation and testing
+      - Business Continuity: Configure minimal service operations during disaster scenarios
+      - Cross-Region Setup: Implement cross-region pipeline infrastructure for geographic redundancy
+      - Recovery Testing: Set up regular disaster recovery testing and validation procedures
+      - Communication Plans: Configure automated stakeholder communication during disaster events
+
+      Requirements:
+      - Implement RTO (Recovery Time Objective) of [RTO_MINUTES] minutes for critical pipelines
+      - Configure RPO (Recovery Point Objective) of [RPO_MINUTES] minutes for pipeline data
+      - Set up automated health monitoring and disaster detection mechanisms
+      - Include comprehensive documentation and runbooks for disaster scenarios
+      - Configure proper security controls for disaster recovery infrastructure
+      - Set up integration with business continuity and crisis management systems
+      - Implement automated capacity scaling for disaster recovery environments
+
+      Provide the complete disaster recovery configuration with testing procedures and validation scripts.
+    notes:
+      - "Regularly test disaster recovery procedures to ensure they work when needed."
+      - "Consider cascading failure scenarios and implement proper isolation mechanisms."
+      - "Document clear escalation procedures and stakeholder communication plans."
+    placeholders:
+      - name: PIPELINE_SYSTEM
+        description: "Pipeline system (e.g., enterprise CI/CD platform, cloud-native pipeline infrastructure, hybrid pipeline environment, critical business application pipelines)"
+      - name: RTO_MINUTES
+        description: "Recovery Time Objective in minutes (e.g., 15, 30, 60, 120)"
+      - name: RPO_MINUTES
+        description: "Recovery Point Objective in minutes (e.g., 5, 15, 30, 60)"
+
+  - name: "Generate Pipeline Cost Optimization"
+    id: devops-pipeline-cost-optimization
+    purpose: "Create intelligent cost optimization strategies for CI/CD pipelines with resource management, usage analytics, and automated cost controls."
+    prompt_text: |
+      You are an expert DevOps engineer specializing in CI/CD cost optimization and FinOps practices for development operations.
+
+      Generate cost optimization solution for [PIPELINE_ENVIRONMENT] including:
+
+      - Resource Optimization: Implement intelligent resource allocation and auto-scaling for build agents
+      - Usage Analytics: Set up comprehensive cost tracking and usage analytics for pipeline operations
+      - Scheduling Optimization: Configure intelligent job scheduling to minimize resource costs
+      - Artifact Management: Implement cost-effective artifact storage with lifecycle policies
+      - Cache Optimization: Set up distributed caching to reduce build times and resource usage
+      - Spot Instance Usage: Configure spot instances and preemptible resources for cost savings
+      - Budget Controls: Implement automated budget monitoring and spending alerts
+      - Cost Allocation: Set up cost allocation and chargeback for different teams and projects
+
+      Requirements:
+      - Configure automated cost monitoring with real-time alerts and spending limits
+      - Set up integration with cloud cost management and billing APIs
+      - Implement cost optimization recommendations with automated implementation
+      - Configure proper tagging and labeling for accurate cost attribution
+      - Set up capacity planning and forecasting for pipeline resource needs
+      - Include cost optimization reporting and dashboard visualization
+      - Configure integration with procurement and financial management systems
+
+      Provide the complete cost optimization configuration with monitoring and control mechanisms.
+    notes:
+      - "Balance cost optimization with pipeline performance and developer productivity."
+      - "Implement gradual cost optimization to avoid disrupting development workflows."
+      - "Use cost data to make informed decisions about pipeline architecture and tooling."
+    placeholders:
+      - name: PIPELINE_ENVIRONMENT
+        description: "Pipeline environment (e.g., cloud-based CI/CD platform, on-premises infrastructure, hybrid pipeline setup, enterprise development platform)"
